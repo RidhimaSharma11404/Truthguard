@@ -28,6 +28,8 @@ share/python-wheels/
 # PyInstaller
 *.manifest
 *.spec
+cloudflared.exe
+*.exe
 
 # Installer logs
 pip-log.txt
