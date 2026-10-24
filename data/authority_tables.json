@@ -1,0 +1,23 @@
+{
+  "telecom": {
+    "regulation": 5,
+    "board policy": 4,
+    "product T&C": 3,
+    "FAQ": 2,
+    "support email": 1
+  },
+  "media_rights": {
+    "statutory law": 5,
+    "master licensing agreement": 4,
+    "distribution deal memo": 3,
+    "press release / FAQ": 2,
+    "sales rep email": 1
+  },
+  "banking": {
+    "central bank circular": 5,
+    "board risk policy": 4,
+    "credit agreement": 3,
+    "customer portal FAQ": 2,
+    "relationship manager email": 1
+  }
+}

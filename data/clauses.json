@@ -1,0 +1,661 @@
+[
+  {
+    "clause_id": "RP-v1-4.2",
+    "doc_id": "Refund Policy v1",
+    "doc_type": "board policy",
+    "text": "Customers requesting plan cancellation or recharge refund are eligible within 7 calendar days of transaction date.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": "2025-06-30",
+    "relations": [],
+    "specificity": "general",
+    "topic": "refund_window"
+  },
+  {
+    "clause_id": "RP-v1-4.5",
+    "doc_id": "Refund Policy v1",
+    "doc_type": "board policy",
+    "text": "All approved refunds must be credited back to the customer's original payment card or bank account, never as store credit or digital vouchers.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "refund_method"
+  },
+  {
+    "clause_id": "RP-v1-4.8",
+    "doc_id": "Refund Policy v1",
+    "doc_type": "board policy",
+    "text": "A cooling-off grace period of 48 hours applies to all new postpaid connection activations with zero penalty.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "cooling_off"
+  },
+  {
+    "clause_id": "AMD-A-1",
+    "doc_id": "Amendment A to Refund Policy",
+    "doc_type": "board policy",
+    "text": "Clause 4.2 of Refund Policy v1 is hereby amended: customers requesting plan cancellation or recharge refund are eligible within 14 calendar days of transaction date.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-03-15",
+    "effective_from": "2025-07-01",
+    "effective_to": null,
+    "relations": [
+      {
+        "type": "amends",
+        "target": "RP-v1-4.2"
+      }
+    ],
+    "specificity": "general",
+    "topic": "refund_window"
+  },
+  {
+    "clause_id": "FAQ-12",
+    "doc_id": "Support FAQ #12",
+    "doc_type": "FAQ",
+    "text": "Recharge refunds are allowed within 7 days and are issued strictly as non-transferable store credit or wallet vouchers.",
+    "authority_rank": 2,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-08-01",
+    "effective_from": "2025-08-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "refund_window"
+  },
+  {
+    "clause_id": "FAQ-12-STORE",
+    "doc_id": "Support FAQ #12",
+    "doc_type": "FAQ",
+    "text": "All refund credits are disbursed as internal app wallet points valid for 60 days.",
+    "authority_rank": 2,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-08-01",
+    "effective_from": "2025-08-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "refund_method"
+  },
+  {
+    "clause_id": "EMAIL-OCT-1",
+    "doc_id": "Support Agent Email Oct 2025",
+    "doc_type": "support email",
+    "text": "Support reps are authorized to process full cash refunds up to 30 days post-recharge for dissatisfied users upon request.",
+    "authority_rank": 1,
+    "scope": {
+      "product": "prepaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "published_date": "2025-10-10",
+    "effective_from": "2025-10-10",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "refund_window"
+  },
+  {
+    "clause_id": "TC-NAT-ROAM",
+    "doc_id": "National Tariff Terms 2025",
+    "doc_type": "product T&C",
+    "text": "Domestic roaming high-speed data is throttled after 1GB per day across all circles nationwide.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "prepaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-02-01",
+    "effective_from": "2025-02-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "roaming_limit"
+  },
+  {
+    "clause_id": "TC-NAT-BILL",
+    "doc_id": "National Tariff Terms 2025",
+    "doc_type": "product T&C",
+    "text": "Postpaid monthly billing cycle is fixed at 30 days from SIM activation date.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-02-01",
+    "effective_from": "2025-02-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "billing_cycle"
+  },
+  {
+    "clause_id": "TC-DELHI-STUDENT",
+    "doc_id": "Delhi Student Roaming Special",
+    "doc_type": "product T&C",
+    "text": "Verified students registered in the Delhi NCR university circle receive 3GB per day of high-speed roaming data without throttling.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "published_date": "2025-01-15",
+    "effective_from": "2025-01-15",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "narrow",
+    "topic": "roaming_limit"
+  },
+  {
+    "clause_id": "TC-BLR-ENT",
+    "doc_id": "Karnataka Tech Corridor Enterprise Addendum",
+    "doc_type": "product T&C",
+    "text": "Enterprise corporate accounts in Bangalore Tech Park receive 10GB unthrottled roaming data per day.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "postpaid",
+      "region": "Bangalore",
+      "customer_segment": "enterprise"
+    },
+    "published_date": "2025-02-15",
+    "effective_from": "2025-02-15",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "narrow",
+    "topic": "roaming_limit"
+  },
+  {
+    "clause_id": "FIBER-BASE-LATEFEE",
+    "doc_id": "Broadband Plan Terms 2024",
+    "doc_type": "product T&C",
+    "text": "Late payment fee on overdue broadband invoices is 5% of total outstanding bill amount.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-01-01",
+    "effective_from": "2024-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "late_fee"
+  },
+  {
+    "clause_id": "AMD-FIBER-1",
+    "doc_id": "Broadband Amendment 1",
+    "doc_type": "product T&C",
+    "text": "Late payment fee on overdue broadband invoices is raised to 10% of total invoice balance.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-06-01",
+    "effective_from": "2024-06-01",
+    "effective_to": "2024-08-31",
+    "relations": [
+      {
+        "type": "amends",
+        "target": "FIBER-BASE-LATEFEE"
+      }
+    ],
+    "specificity": "general",
+    "topic": "late_fee"
+  },
+  {
+    "clause_id": "AMD-FIBER-2",
+    "doc_id": "Broadband Amendment 2",
+    "doc_type": "product T&C",
+    "text": "Amendment 1 (AMD-FIBER-1) is hereby withdrawn and canceled in its entirety. Late payment fee is established as a flat administrative charge of Rs. 50.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-09-01",
+    "effective_from": "2024-09-01",
+    "effective_to": null,
+    "relations": [
+      {
+        "type": "withdraws",
+        "target": "AMD-FIBER-1"
+      },
+      {
+        "type": "amends",
+        "target": "FIBER-BASE-LATEFEE"
+      }
+    ],
+    "specificity": "general",
+    "topic": "late_fee"
+  },
+  {
+    "clause_id": "REG-MNP-ZERO",
+    "doc_id": "Telecom Regulatory Directive 2024",
+    "doc_type": "regulation",
+    "text": "No telecom access provider shall levy any porting fee or administrative switching surcharge on mobile number portability (MNP) requests.",
+    "authority_rank": 5,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-04-01",
+    "effective_from": "2024-04-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "porting_fee"
+  },
+  {
+    "clause_id": "FAQ-MNP-CHARGE",
+    "doc_id": "Subscriber Portal FAQ 2025",
+    "doc_type": "FAQ",
+    "text": "A standard processing fee of Rs. 100 is charged on all outgoing MNP port-out requests to cover verification overhead.",
+    "authority_rank": 2,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-05-01",
+    "effective_from": "2025-05-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "porting_fee"
+  },
+  {
+    "clause_id": "KYC-STD-1",
+    "doc_id": "SIM Verification Compliance Guidelines",
+    "doc_type": "board policy",
+    "text": "New SIM card issuance requires mandatory government photographic identity verification before electronic network provisioning.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-01-01",
+    "effective_from": "2024-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "kyc_verification"
+  },
+  {
+    "clause_id": "INTER-SLA-ALPHA",
+    "doc_id": "Carrier Interconnect Agreement Alpha",
+    "doc_type": "board policy",
+    "text": "Inter-carrier voice billing discrepancy disputes must be formally escalated and resolved within 15 calendar days.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "wholesale",
+      "region": "all",
+      "customer_segment": "enterprise"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "interconnect_sla"
+  },
+  {
+    "clause_id": "INTER-SLA-BETA",
+    "doc_id": "Carrier Interconnect Agreement Beta",
+    "doc_type": "board policy",
+    "text": "Inter-carrier voice billing discrepancy disputes must be formally escalated and resolved within 30 calendar days.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "wholesale",
+      "region": "all",
+      "customer_segment": "enterprise"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "interconnect_sla"
+  },
+  {
+    "clause_id": "MLA-2024-WINDOW",
+    "doc_id": "Global Master Film Licensing Agreement",
+    "doc_type": "board policy",
+    "text": "Theatrical window holdback period is 90 days from theatrical release before SVOD/OTT streaming availability.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-01-10",
+    "effective_from": "2024-01-10",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "theatrical_holdback"
+  },
+  {
+    "clause_id": "MLA-2024-AUDIT",
+    "doc_id": "Global Master Film Licensing Agreement",
+    "doc_type": "board policy",
+    "text": "Licensor retains the legal right to conduct independent financial royalty audits once every calendar year.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-01-10",
+    "effective_from": "2024-01-10",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "royalty_audit"
+  },
+  {
+    "clause_id": "FR-MEDIA-CHRONO",
+    "doc_id": "French Media Chronology Exception Addendum",
+    "doc_type": "product T&C",
+    "text": "Under statutory French Media Chronology obligations in France, theatrical window holdback before SVOD streaming is strictly 17 months.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "streaming",
+      "region": "France",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-02-01",
+    "effective_from": "2024-02-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "narrow",
+    "topic": "theatrical_holdback"
+  },
+  {
+    "clause_id": "AMD-MEDIA-WINDOW",
+    "doc_id": "European License Renewal Addendum 2025",
+    "doc_type": "board policy",
+    "text": "Clause MLA-2024-WINDOW is amended: general theatrical window holdback is reduced to 45 days globally.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-04-01",
+    "effective_from": "2025-09-01",
+    "effective_to": null,
+    "relations": [
+      {
+        "type": "amends",
+        "target": "MLA-2024-WINDOW"
+      }
+    ],
+    "specificity": "general",
+    "topic": "theatrical_holdback"
+  },
+  {
+    "clause_id": "EMAIL-SALES-WINDOW",
+    "doc_id": "Sales Executive Email Oct 2025",
+    "doc_type": "support email",
+    "text": "We can informally waive theatrical holdback and deliver SVOD day-and-date in all territories without surcharge.",
+    "authority_rank": 1,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-10-05",
+    "effective_from": "2025-10-05",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "theatrical_holdback"
+  },
+  {
+    "clause_id": "DACH-EXCL-1",
+    "doc_id": "DACH Streaming Territorial Agreement",
+    "doc_type": "board policy",
+    "text": "Exclusive German and Austrian digital streaming distribution rights are exclusively vested with Sky Deutschland.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "Germany",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-03-01",
+    "effective_from": "2024-03-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "narrow",
+    "topic": "streaming_exclusivity"
+  },
+  {
+    "clause_id": "PR-GLOBAL-STREAM",
+    "doc_id": "Global Marketing Press Release 2025",
+    "doc_type": "FAQ",
+    "text": "Our flagship film catalog is accessible for streaming directly on our website worldwide in every country including Germany.",
+    "authority_rank": 2,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-06-01",
+    "effective_from": "2025-06-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "streaming_exclusivity"
+  },
+  {
+    "clause_id": "AMD-MEDIA-4K-1",
+    "doc_id": "Media Chain Amendment Alpha",
+    "doc_type": "product T&C",
+    "text": "Streaming delivery of 4K Ultra-HD HDR content requires a 15% royalty surcharge per stream.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-05-01",
+    "effective_from": "2024-05-01",
+    "effective_to": "2024-11-30",
+    "relations": [],
+    "specificity": "general",
+    "topic": "4k_surcharge"
+  },
+  {
+    "clause_id": "AMD-MEDIA-4K-2",
+    "doc_id": "Media Chain Amendment Beta",
+    "doc_type": "product T&C",
+    "text": "Addendum 1 (AMD-MEDIA-4K-1) is rescinded and withdrawn. 4K Ultra-HD HDR streaming incurs a flat annual technology fee of $5,000 with zero per-stream percentage surcharge.",
+    "authority_rank": 3,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-12-01",
+    "effective_from": "2024-12-01",
+    "effective_to": null,
+    "relations": [
+      {
+        "type": "withdraws",
+        "target": "AMD-MEDIA-4K-1"
+      }
+    ],
+    "specificity": "general",
+    "topic": "4k_surcharge"
+  },
+  {
+    "clause_id": "COPRO-RIGHTS-A",
+    "doc_id": "Co-Production Equal Rights Agreement A",
+    "doc_type": "board policy",
+    "text": "Sole and unrestricted digital sub-licensing authority is granted exclusively to Studio Alpha.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "sublicensing_authority"
+  },
+  {
+    "clause_id": "COPRO-RIGHTS-B",
+    "doc_id": "Co-Production Equal Rights Agreement B",
+    "doc_type": "board policy",
+    "text": "Sole and unrestricted digital sub-licensing authority is granted exclusively to Studio Beta.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-01-01",
+    "effective_from": "2025-01-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "sublicensing_authority"
+  },
+  {
+    "clause_id": "5G-FUP-BASE",
+    "doc_id": "5G Standalone Fair Usage Policy",
+    "doc_type": "board policy",
+    "text": "Unlimited 5G data plans are subject to commercial throttling to 64 Kbps after 300GB monthly consumption.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "prepaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-01-10",
+    "effective_from": "2025-01-10",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "5g_throttling"
+  },
+  {
+    "clause_id": "5G-FAQ-UNLIM",
+    "doc_id": "5G Marketing Brochure FAQ",
+    "doc_type": "FAQ",
+    "text": "Enjoy truly limitless 5G speeds with zero speed drops or monthly data caps whatsoever.",
+    "authority_rank": 2,
+    "scope": {
+      "product": "prepaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-07-20",
+    "effective_from": "2025-07-20",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "5g_throttling"
+  },
+  {
+    "clause_id": "SEC-SIMSWAP-SMS",
+    "doc_id": "SIM Swap Security Directive",
+    "doc_type": "regulation",
+    "text": "Outgoing SMS facilities must be barred for exactly 24 hours immediately following any replacement or upgraded SIM activation.",
+    "authority_rank": 5,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-08-01",
+    "effective_from": "2024-08-01",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "sim_swap_lock"
+  },
+  {
+    "clause_id": "EMAIL-SIMSWAP-BYPASS",
+    "doc_id": "Retail Store Agent Onboarding Email",
+    "doc_type": "support email",
+    "text": "Store managers can override and bypass the 24-hour SMS barring for VIP customers with verbal manager consent.",
+    "authority_rank": 1,
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "published_date": "2025-09-02",
+    "effective_from": "2025-09-02",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "general",
+    "topic": "sim_swap_lock"
+  },
+  {
+    "clause_id": "MEDIA-DUB-1",
+    "doc_id": "Media Rights Multi-Language Audio Addendum",
+    "doc_type": "board policy",
+    "text": "Distributor has the exclusive right to commission Spanish and Portuguese language audio dubs for Latin American OTT distribution.",
+    "authority_rank": 4,
+    "scope": {
+      "product": "streaming",
+      "region": "Latin America",
+      "customer_segment": "all"
+    },
+    "published_date": "2024-04-15",
+    "effective_from": "2024-04-15",
+    "effective_to": null,
+    "relations": [],
+    "specificity": "narrow",
+    "topic": "audio_localization"
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "metrics": [
+    {
+      "metric": "Accuracy",
+      "description": "Correct answer for the as-of date",
+      "truthguard": "93.8%",
+      "baseline_a": "56.9%",
+      "baseline_b": "0.0%",
+      "proposed_target": "Clearly above both baselines"
+    },
+    {
+      "metric": "Conflict Recall",
+      "description": "Share of planted conflicts found",
+      "truthguard": "100.0%",
+      "baseline_a": "12.0%",
+      "baseline_b": "18.5%",
+      "proposed_target": "85% or higher"
+    },
+    {
+      "metric": "False-Confidence Rate",
+      "description": "Wrong answers stated without warning",
+      "truthguard": "4.6%",
+      "baseline_a": "43.1%",
+      "baseline_b": "100.0%",
+      "proposed_target": "5% or lower"
+    },
+    {
+      "metric": "Citation Precision",
+      "description": "Cited clause really supports the claim",
+      "truthguard": "98.5%",
+      "baseline_a": "42.0%",
+      "baseline_b": "49.0%",
+      "proposed_target": "95% or higher"
+    },
+    {
+      "metric": "Abstain Correctness",
+      "description": "Abstains on genuinely unresolvable questions",
+      "truthguard": "100.0%",
+      "baseline_a": "0.0% (hallucinates)",
+      "baseline_b": "0.0% (picks newest)",
+      "proposed_target": "Report as is"
+    }
+  ],
+  "per_trap_breakdown": {
+    "authority_over_recency": {
+      "total": 12,
+      "truthguard_acc": "100.0%",
+      "baseline_a_acc": "66.7%",
+      "baseline_b_acc": "0.0%"
+    },
+    "clause_supersession": {
+      "total": 10,
+      "truthguard_acc": "90.0%",
+      "baseline_a_acc": "90.0%",
+      "baseline_b_acc": "0.0%"
+    },
+    "in_force_date": {
+      "total": 9,
+      "truthguard_acc": "100.0%",
+      "baseline_a_acc": "0.0%",
+      "baseline_b_acc": "0.0%"
+    },
+    "specific_over_general": {
+      "total": 12,
+      "truthguard_acc": "91.7%",
+      "baseline_a_acc": "83.3%",
+      "baseline_b_acc": "0.0%"
+    },
+    "amendment_chains": {
+      "total": 11,
+      "truthguard_acc": "90.9%",
+      "baseline_a_acc": "18.2%",
+      "baseline_b_acc": "0.0%"
+    },
+    "control": {
+      "total": 9,
+      "truthguard_acc": "88.9%",
+      "baseline_a_acc": "88.9%",
+      "baseline_b_acc": "0.0%"
+    },
+    "unresolvable_abstain": {
+      "total": 2,
+      "truthguard_acc": "100.0%",
+      "baseline_a_acc": "0.0%",
+      "baseline_b_acc": "0.0%"
+    }
+  },
+  "summary": {
+    "total_questions": 65,
+    "truthguard_correct": 61,
+    "baseline_a_correct": 37,
+    "baseline_b_correct": 0
+  }
+}

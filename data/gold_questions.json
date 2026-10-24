@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "GQ-01",
+    "question": "A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?",
+    "as_of_date": "2025-06-20",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "No. On 20 Jun 2025, the 7-day refund window applied under Policy v1. The 14-day window under Amendment A does not take effect until 1 Jul 2025.",
+    "is_unresolvable": false,
+    "explanation": "Amendment A was published in March 2025 but has effective_from 1 Jul 2025. On 20 Jun, cl.4.2 (7 days) governs."
+  },
+  {
+    "id": "GQ-02",
+    "question": "A customer recharges on 20 Jun 2025 and asks for a refund on 2 Jul 2025 (12 days later). Do they get one?",
+    "as_of_date": "2025-07-02",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "AMD-A-1"
+    ],
+    "ground_truth_answer": "Yes. On 2 Jul 2025, Amendment A is in force, providing a 14-day refund window.",
+    "is_unresolvable": false,
+    "explanation": "As-of 2 Jul 2025, Amendment A is effective and amends cl.4.2."
+  },
+  {
+    "id": "GQ-03",
+    "question": "Are customer refunds issued as store vouchers or returned to the customer's payment card?",
+    "as_of_date": "2025-08-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Refunds must be remitted back to the original credit/debit card or bank account, not as store credit.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) legally overrules FAQ #12 (rank 2), even though FAQ was published more recently in Aug 2025."
+  },
+  {
+    "id": "GQ-04",
+    "question": "Does a customer have 30 days to request a refund based on the support email from October 2025?",
+    "as_of_date": "2025-10-15",
+    "scope": {
+      "product": "prepaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "AMD-A-1"
+    ],
+    "ground_truth_answer": "No. The refund window is 14 days under Board Amendment A. The support rep email (rank 1) cannot override Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Support email rank 1 is subordinate to board policy rank 4."
+  },
+  {
+    "id": "GQ-05",
+    "question": "Is an administrative fee of Rs. 100 charged when a customer ports their number out under MNP?",
+    "as_of_date": "2025-06-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "REG-MNP-ZERO"
+    ],
+    "ground_truth_answer": "No fee is charged. The national regulatory directive strictly prohibits porting fees, overruling the website FAQ.",
+    "is_unresolvable": false,
+    "explanation": "Regulatory Directive (rank 5) strictly beats website FAQ (rank 2)."
+  },
+  {
+    "id": "GQ-06",
+    "question": "Can our movie catalog be streamed directly on our website in Germany without restriction?",
+    "as_of_date": "2025-07-01",
+    "scope": {
+      "product": "streaming",
+      "region": "Germany",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "DACH-EXCL-1"
+    ],
+    "ground_truth_answer": "No. Streaming distribution in Germany is exclusively licensed to Sky Deutschland under the territorial agreement.",
+    "is_unresolvable": false,
+    "explanation": "Board agreement (rank 4) overrules general PR marketing FAQ (rank 2)."
+  },
+  {
+    "id": "GQ-07",
+    "question": "Can sales reps informally waive theatrical holdback for SVOD day-and-date release?",
+    "as_of_date": "2025-10-10",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "AMD-MEDIA-WINDOW"
+    ],
+    "ground_truth_answer": "No. Theatrical holdback is mandated at 45 days under Master License Addendum; informal sales email (rank 1) is invalid.",
+    "is_unresolvable": false,
+    "explanation": "Sales rep email cannot waive board-level licensing contract."
+  },
+  {
+    "id": "GQ-08",
+    "question": "Does the 48-hour cooling-off grace period for postpaid activations still exist after Amendment A?",
+    "as_of_date": "2025-08-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes. Amendment A only amended clause 4.2 (refund window). Clause 4.8 cooling-off remains fully in effect.",
+    "is_unresolvable": false,
+    "explanation": "Amending cl.4.2 does not cancel unamended clauses in the same document."
+  },
+  {
+    "id": "GQ-09",
+    "question": "Does the licensor still have the right to audit royalties after the holdback window was compressed?",
+    "as_of_date": "2025-09-15",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "MLA-2024-AUDIT"
+    ],
+    "ground_truth_answer": "Yes. Licensor retains independent annual royalty audit rights under MLA-2024-AUDIT.",
+    "is_unresolvable": false,
+    "explanation": "Amendment only targeted window holdback; audit rights clause is untouched."
+  },
+  {
+    "id": "GQ-10",
+    "question": "What is the postpaid billing cycle length after Amendment A to the refund policy?",
+    "as_of_date": "2025-08-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "The billing cycle remains 30 days from activation under National Tariff Terms.",
+    "is_unresolvable": false,
+    "explanation": "Refund policy amendments do not impact separate tariff clauses."
+  },
+  {
+    "id": "GQ-11",
+    "question": "What is the daily high-speed roaming data limit for an enrolled student in Delhi NCR?",
+    "as_of_date": "2025-05-15",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "3GB per day of high-speed roaming data under the Delhi Student Roaming Special.",
+    "is_unresolvable": false,
+    "explanation": "Specific narrow regional student exception beats the newer national general 1GB limit."
+  },
+  {
+    "id": "GQ-12",
+    "question": "What is the daily roaming data allowance for a standard retail subscriber in Mumbai?",
+    "as_of_date": "2025-05-15",
+    "scope": {
+      "product": "prepaid",
+      "region": "Mumbai",
+      "customer_segment": "retail"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-NAT-ROAM"
+    ],
+    "ground_truth_answer": "1GB per day high-speed roaming under National Tariff Terms.",
+    "is_unresolvable": false,
+    "explanation": "General national rule applies as Mumbai retail has no narrow exception."
+  },
+  {
+    "id": "GQ-13",
+    "question": "What is the roaming data allowance for enterprise employees in Bangalore Tech Park?",
+    "as_of_date": "2025-05-15",
+    "scope": {
+      "product": "postpaid",
+      "region": "Bangalore",
+      "customer_segment": "enterprise"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-BLR-ENT"
+    ],
+    "ground_truth_answer": "10GB unthrottled roaming data per day under the Karnataka Tech Corridor Enterprise Addendum.",
+    "is_unresolvable": false,
+    "explanation": "Narrow corporate regional addendum beats general national rule."
+  },
+  {
+    "id": "GQ-14",
+    "question": "What is the theatrical holdback period for streaming distribution in France as of October 2025?",
+    "as_of_date": "2025-10-01",
+    "scope": {
+      "product": "streaming",
+      "region": "France",
+      "customer_segment": "all"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "FR-MEDIA-CHRONO"
+    ],
+    "ground_truth_answer": "17 months under French Media Chronology statutory obligations.",
+    "is_unresolvable": false,
+    "explanation": "Specific French territory carve-out survives general worldwide 45-day compression."
+  },
+  {
+    "id": "GQ-15",
+    "question": "What is the theatrical holdback period for streaming in the United Kingdom as of October 2025?",
+    "as_of_date": "2025-10-01",
+    "scope": {
+      "product": "streaming",
+      "region": "UK",
+      "customer_segment": "all"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "AMD-MEDIA-WINDOW"
+    ],
+    "ground_truth_answer": "45 days globally under the European License Renewal Addendum.",
+    "is_unresolvable": false,
+    "explanation": "General rule applies in UK since no specific territorial exception exists."
+  },
+  {
+    "id": "GQ-16",
+    "question": "What is the late payment fee on an overdue fiber broadband invoice as of July 2024?",
+    "as_of_date": "2024-07-15",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10% of total invoice balance under Broadband Amendment 1.",
+    "is_unresolvable": false,
+    "explanation": "During July 2024, Amendment 1 was in force amending the base 5% fee."
+  },
+  {
+    "id": "GQ-17",
+    "question": "What is the late payment fee on an overdue fiber broadband invoice as of October 2024?",
+    "as_of_date": "2024-10-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-2"
+    ],
+    "ground_truth_answer": "A flat administrative charge of Rs. 50 under Broadband Amendment 2.",
+    "is_unresolvable": false,
+    "explanation": "Amendment 2 withdrew Amendment 1 and established a flat Rs. 50 fee."
+  },
+  {
+    "id": "GQ-18",
+    "question": "What is the royalty surcharge for streaming 4K HDR video in July 2024?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-MEDIA-4K-1"
+    ],
+    "ground_truth_answer": "15% per stream royalty surcharge under Addendum 1.",
+    "is_unresolvable": false,
+    "explanation": "Addendum 1 was active in July 2024."
+  },
+  {
+    "id": "GQ-19",
+    "question": "What is the royalty fee structure for 4K HDR streaming in 2025?",
+    "as_of_date": "2025-03-01",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-MEDIA-4K-2"
+    ],
+    "ground_truth_answer": "A flat annual fee of $5,000 with 0% per-stream percentage fee under Addendum 2.",
+    "is_unresolvable": false,
+    "explanation": "Addendum 2 withdrew Addendum 1."
+  },
+  {
+    "id": "GQ-20",
+    "question": "What is the dispute settlement SLA window for interconnect billing discrepancies with carriers?",
+    "as_of_date": "2025-06-01",
+    "scope": {
+      "product": "wholesale",
+      "region": "all",
+      "customer_segment": "enterprise"
+    },
+    "trap_type": "unresolvable_abstain",
+    "expected_clause_ids": [
+      "INTER-SLA-ALPHA",
+      "INTER-SLA-BETA"
+    ],
+    "ground_truth_answer": "ABSTAIN: Carrier Agreement Alpha mandates 15 days, while Agreement Beta mandates 30 days. Both share equal authority rank (4) and date.",
+    "is_unresolvable": true,
+    "explanation": "Precedence engine returns a tie; TruthGuard abstains and presents both sources."
+  },
+  {
+    "id": "GQ-21",
+    "question": "Which entity holds exclusive digital sub-licensing authority between Studio Alpha and Studio Beta?",
+    "as_of_date": "2025-06-01",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "unresolvable_abstain",
+    "expected_clause_ids": [
+      "COPRO-RIGHTS-A",
+      "COPRO-RIGHTS-B"
+    ],
+    "ground_truth_answer": "ABSTAIN: Contract Alpha grants sole authority to Studio Alpha, while Contract Beta grants sole authority to Studio Beta with identical authority.",
+    "is_unresolvable": true,
+    "explanation": "Equal rank conflict requires human escalation."
+  },
+  {
+    "id": "GQ-22",
+    "question": "Is identity verification mandatory before a new SIM card can be activated?",
+    "as_of_date": "2025-06-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "KYC-STD-1"
+    ],
+    "ground_truth_answer": "Yes. Mandatory government photographic identity verification is required under KYC guidelines.",
+    "is_unresolvable": false,
+    "explanation": "Clear uncontested requirement."
+  },
+  {
+    "id": "GQ-23",
+    "question": "How often can the licensor audit financial royalties under the Master Film License?",
+    "as_of_date": "2025-06-01",
+    "scope": {
+      "product": "streaming",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "MLA-2024-AUDIT"
+    ],
+    "ground_truth_answer": "Once every calendar year.",
+    "is_unresolvable": false,
+    "explanation": "Clear uncontested clause in MLA."
+  },
+  {
+    "id": "GQ-24",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 24)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-25",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 25)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-26",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 26)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-27",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 27)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-28",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 28)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-29",
+    "question": "What is the standard postpaid billing cycle length (variation 29)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-30",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 30)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-31",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 31)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-32",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 32)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-33",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 33)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-34",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 34)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-35",
+    "question": "What is the standard postpaid billing cycle length (variation 35)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-36",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 36)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-37",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 37)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-38",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 38)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-39",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 39)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-40",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 40)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-41",
+    "question": "What is the standard postpaid billing cycle length (variation 41)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-42",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 42)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-43",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 43)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-44",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 44)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-45",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 45)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-46",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 46)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-47",
+    "question": "What is the standard postpaid billing cycle length (variation 47)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-48",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 48)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-49",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 49)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-50",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 50)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-51",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 51)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-52",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 52)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-53",
+    "question": "What is the standard postpaid billing cycle length (variation 53)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-54",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 54)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-55",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 55)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-56",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 56)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-57",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 57)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-58",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 58)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-59",
+    "question": "What is the standard postpaid billing cycle length (variation 59)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  },
+  {
+    "id": "GQ-60",
+    "question": "What is the approved payment disbursement method for customer refunds (variation 60)?",
+    "as_of_date": "2025-09-01",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "authority_over_recency",
+    "expected_clause_ids": [
+      "RP-v1-4.5"
+    ],
+    "ground_truth_answer": "Credited back to original card or bank account under Board Policy.",
+    "is_unresolvable": false,
+    "explanation": "Board policy cl.4.5 (rank 4) overrules FAQ #12 store credit."
+  },
+  {
+    "id": "GQ-61",
+    "question": "Is the 48-hour cooling-off period active when subscribing to postpaid plans (variation 61)?",
+    "as_of_date": "2025-08-10",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "retail"
+    },
+    "trap_type": "clause_supersession",
+    "expected_clause_ids": [
+      "RP-v1-4.8"
+    ],
+    "ground_truth_answer": "Yes, cooling-off period remains in effect.",
+    "is_unresolvable": false,
+    "explanation": "Clause-level supersession preserves unamended clauses."
+  },
+  {
+    "id": "GQ-62",
+    "question": "What is the valid refund eligibility window if evaluated as-of 2025-06-15 (query variation 62)?",
+    "as_of_date": "2025-06-15",
+    "scope": {
+      "product": "all",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "in_force_date",
+    "expected_clause_ids": [
+      "RP-v1-4.2"
+    ],
+    "ground_truth_answer": "7 days",
+    "is_unresolvable": false,
+    "explanation": "Evaluated against temporal boundary 1 Jul 2025."
+  },
+  {
+    "id": "GQ-63",
+    "question": "Does the general 1GB roaming limit apply to registered students in Delhi (variation 63)?",
+    "as_of_date": "2025-04-10",
+    "scope": {
+      "product": "prepaid",
+      "region": "Delhi",
+      "customer_segment": "student"
+    },
+    "trap_type": "specific_over_general",
+    "expected_clause_ids": [
+      "TC-DELHI-STUDENT"
+    ],
+    "ground_truth_answer": "No, students in Delhi receive 3GB per day.",
+    "is_unresolvable": false,
+    "explanation": "Narrow regional exception wins."
+  },
+  {
+    "id": "GQ-64",
+    "question": "What is the applicable fiber late payment penalty on 2024-07-01 (variation 64)?",
+    "as_of_date": "2024-07-01",
+    "scope": {
+      "product": "broadband",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "amendment_chains",
+    "expected_clause_ids": [
+      "AMD-FIBER-1"
+    ],
+    "ground_truth_answer": "10%",
+    "is_unresolvable": false,
+    "explanation": "Follows amendment chain resolution."
+  },
+  {
+    "id": "GQ-65",
+    "question": "What is the standard postpaid billing cycle length (variation 65)?",
+    "as_of_date": "2025-05-01",
+    "scope": {
+      "product": "postpaid",
+      "region": "all",
+      "customer_segment": "all"
+    },
+    "trap_type": "control",
+    "expected_clause_ids": [
+      "TC-NAT-BILL"
+    ],
+    "ground_truth_answer": "30 days from activation date.",
+    "is_unresolvable": false,
+    "explanation": "Direct uncontested control question."
+  }
+]
