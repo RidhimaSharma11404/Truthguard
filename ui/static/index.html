@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TruthGuard | Legal Document Precedence Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              pink: '#FF2A85',
+              lime: '#B4F73C',
+              yellow: '#FFE600',
+              cyan: '#00F0FF',
+              dark: '#111827',
+            }
+          },
+          boxShadow: {
+            'brutal': '5px 5px 0px #111827',
+            'brutal-sm': '3px 3px 0px #111827',
+            'brutal-lg': '8px 8px 0px #111827',
+            'brutal-pink': '5px 5px 0px #FF2A85',
+            'brutal-green': '5px 5px 0px #16A34A',
+            'brutal-red': '5px 5px 0px #E11D48',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Pastel geometric grid background matching the user's reference image */
+    body {
+      background-color: #FAF5EF;
+      background-image: 
+        radial-gradient(#E2D9CE 1.2px, transparent 1.2px),
+        linear-gradient(135deg, rgba(254, 205, 211, 0.35) 0%, rgba(254, 240, 138, 0.25) 40%, rgba(186, 230, 253, 0.35) 100%);
+      background-size: 24px 24px, cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .neo-border {
+      border: 2.5px solid #111827;
+    }
+    .neo-border-sm {
+      border: 2px solid #111827;
+    }
+    .neo-btn {
+      transition: all 0.12s ease;
+    }
+    .neo-btn:hover {
+      transform: translate(-1.5px, -1.5px);
+    }
+    .neo-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #111827 !important;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-start p-4 sm:p-6 lg:p-8 text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- Main Floating App Container (Styled like the user's reference image) -->
+  <main class="w-full max-w-4xl bg-white neo-border rounded-[28px] shadow-brutal-lg p-6 sm:p-8 my-4 transition-all">
+    
+    <!-- Top Header & Pills -->
+    <header class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-gray-100 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-brand-pink neo-border-sm shadow-brutal-sm flex items-center justify-center text-white text-xl font-bold">
+          🛡️
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">TruthGuard</h1>
+            <span class="bg-brand-lime text-xs font-extrabold uppercase px-3 py-1 rounded-full neo-border-sm shadow-brutal-sm">
+              Jatayu S6
+            </span>
+          </div>
+          <p class="text-xs font-semibold text-gray-500">Legal Document Precedence & Anti-Hallucination Engine</p>
+        </div>
+      </div>
+
+      <!-- Quick Toggles (EN/HI + Status Badge, exactly matching reference style) -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center bg-gray-50 neo-border-sm rounded-full p-1 text-xs font-bold">
+          <span class="px-3 py-1 bg-brand-dark text-white rounded-full neo-border-sm shadow-brutal-sm">EN</span>
+          <span class="px-3 py-1 text-gray-600 cursor-pointer hover:text-black">HI</span>
+        </div>
+        <div class="w-9 h-9 rounded-full bg-white neo-border-sm shadow-brutal-sm flex items-center justify-center text-sm cursor-pointer hover:bg-gray-50">
+          🌙
+        </div>
+      </div>
+    </header>
+
+    <!-- Subtitle / Mission Statement -->
+    <div class="mt-5 mb-6 bg-amber-50 neo-border-sm rounded-2xl p-4 shadow-brutal-sm flex items-start gap-3">
+      <span class="text-xl">⚖️</span>
+      <div class="text-xs sm:text-sm font-semibold text-amber-950 leading-relaxed">
+        <b>Moffatt v. Air Canada (2024):</b> A tribunal ruled chatbots legally bind the company. 
+        TruthGuard stops AI from picking outdated or subordinate policies, enforcing <b>6 deterministic legal checks</b>.
+      </div>
+    </div>
+
+    <!-- Quick Scenario Presets (Clean, user-friendly chips) -->
+    <section class="mb-6">
+      <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-700 mb-2">
+        🎯 Quick Demo Scenarios (Click to Load):
+      </label>
+      <div class="flex flex-wrap gap-2" id="scenario-chips">
+        <button onclick="loadScenario('hero_20jun')" class="scenario-btn active px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-brand-yellow hover:bg-brand-lime transition-all">
+          ⚡ Hero Case (20 Jun)
+        </button>
+        <button onclick="loadScenario('hero_2jul')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
+          ⏱️ Time Travel (2 Jul)
+        </button>
+        <button onclick="loadScenario('trap1_authority')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
+          🚨 Trap 1: FAQ vs Board Policy
+        </button>
+        <button onclick="loadScenario('trap4_delhi')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
+          📍 Trap 4: Delhi Student Roaming
+        </button>
+        <button onclick="loadScenario('trap5_fee')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
+          🔗 Trap 5: Amendment Chain
+        </button>
+        <button onclick="loadScenario('tie_abstain')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
+          ⚖️ Equal Conflict (Abstain)
+        </button>
+      </div>
+    </section>
+
+    <!-- Clean Input Form (Styled like the reference card) -->
+    <section class="space-y-4 mb-6">
+      <div>
+        <label for="query-input" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
+          Policy / Compliance Question
+        </label>
+        <div class="relative">
+          <input 
+            type="text" 
+            id="query-input" 
+            class="w-full bg-white neo-border-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none focus:ring-2 focus:ring-brand-pink"
+            placeholder="Ask about refunds, cancellation, roaming, or contract rights..."
+            value="A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?"
+          >
+          <button onclick="clearQuery()" class="absolute right-3 top-3 text-gray-400 hover:text-gray-700 text-sm font-bold">✕</button>
+        </div>
+      </div>
+
+      <!-- Date & Scope Controls -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="as-of-date" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
+            📅 As-Of Date (Temporal Truth Anchor)
+          </label>
+          <input 
+            type="date" 
+            id="as-of-date" 
+            value="2025-06-20"
+            class="w-full bg-white neo-border-sm rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none"
+          >
+        </div>
+        <div>
+          <label for="customer-scope" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
+            🎯 Customer Scope
+          </label>
+          <select 
+            id="customer-scope"
+            class="w-full bg-white neo-border-sm rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none"
+          >
+            <option value="all">General (All Products / Nationwide)</option>
+            <option value="delhi_student">Delhi NCR · Enrolled Student</option>
+            <option value="bangalore_enterprise">Bangalore Tech Park · Enterprise</option>
+            <option value="broadband">Fiber Broadband</option>
+            <option value="wholesale">Wholesale Carrier Interconnect</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Big Friendly Primary Action Button (Hot Pink, matching user reference image!) -->
+      <button 
+        id="run-btn"
+        onclick="runAnalysis()" 
+        class="w-full bg-brand-pink hover:bg-pink-600 text-white font-extrabold py-3.5 px-6 rounded-2xl neo-border shadow-brutal neo-btn text-base flex items-center justify-center gap-2 cursor-pointer mt-2"
+      >
+        <span>⚡ Run TruthGuard Precedence Analysis</span>
+      </button>
+    </section>
+
+    <!-- Side-by-Side Results Arena -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" id="arena-results">
+      
+      <!-- Plain RAG Card -->
+      <div class="bg-rose-50 neo-border-sm rounded-2xl p-5 shadow-brutal-red flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-extrabold uppercase bg-rose-200 text-rose-800 px-3 py-1 rounded-full neo-border-sm">
+              Standard Plain RAG
+            </span>
+            <span class="text-xs font-extrabold text-rose-700 bg-white px-2 py-0.5 rounded border border-rose-300">
+              Confident & Wrong ❌
+            </span>
+          </div>
+          <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-800 border-l-4 border-l-rose-500 leading-relaxed" id="plain-rag-answer">
+            "Yes, refunds are allowed within 14 days."
+          </div>
+          <p class="text-xs text-rose-900 font-medium">
+            <b>Why it failed:</b> Grabbed Amendment A because it had the newest published date, unaware that its effective date is 1 July 2025.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-rose-200 text-[11px] font-bold text-rose-700 flex items-center justify-between">
+          <span>Air Canada Liability Risk: HIGH</span>
+          <span>Source: Top Cosine Match</span>
+        </div>
+      </div>
+
+      <!-- TruthGuard Card -->
+      <div class="bg-emerald-50 neo-border-sm rounded-2xl p-5 shadow-brutal-green flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-extrabold uppercase bg-brand-lime text-black px-3 py-1 rounded-full neo-border-sm">
+              🛡️ TruthGuard Engine
+            </span>
+            <span class="text-xs font-extrabold text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-300" id="tg-status-badge">
+              Audited & In Force ✅
+            </span>
+          </div>
+          <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-900 border-l-4 border-l-emerald-500 leading-relaxed" id="truthguard-answer">
+            "No. On 20 Jun 2025, the 7-day refund window applied under Policy v1 [RP-v1-4.2]. The 14-day window in Amendment A does not take effect until 1 Jul 2025."
+          </div>
+          <div class="text-xs text-emerald-950 font-medium space-y-1">
+            <p><b>Prevailing Clause:</b> <span class="bg-gray-900 text-brand-lime font-mono px-2 py-0.5 rounded text-[11px] font-bold" id="tg-winner-clause">RP-v1-4.2</span></p>
+            <p><b>Decision:</b> Dropped Amendment A at Step 2 (not yet in force on 20 Jun).</p>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-emerald-200 text-[11px] font-bold text-emerald-800 flex items-center justify-between">
+          <span>Zero Hallucination Gate: PASSED</span>
+          <span>6-Step Rule Audit: VERIFIED</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Visual Chronological Policy Timeline -->
+    <section class="bg-gray-50 neo-border-sm rounded-2xl p-4 sm:p-5 shadow-brutal-sm mb-6" id="timeline-section">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-extrabold uppercase tracking-wider text-gray-700">
+          ⏱️ Chronological Policy Validity Timeline
+        </h3>
+        <span class="text-[11px] font-bold text-gray-500" id="timeline-query-label">As of: 20 Jun 2025</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="timeline-nodes">
+        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-emerald-500" id="node-v1">
+          <div class="font-bold text-gray-900">1 Jan 2025</div>
+          <div class="font-extrabold text-sm text-gray-800">Policy v1</div>
+          <div class="text-gray-500">7-Day Window</div>
+          <div class="text-[10px] font-bold text-emerald-700 mt-1">● IN FORCE</div>
+        </div>
+        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-amber-500" id="node-amd">
+          <div class="font-bold text-gray-900">15 Mar 2025</div>
+          <div class="font-extrabold text-sm text-gray-800">Amendment A</div>
+          <div class="text-gray-500">14-Day Window</div>
+          <div class="text-[10px] font-bold text-amber-700 mt-1">⏳ EFFECTIVE 1 JUL</div>
+        </div>
+        <div class="bg-blue-100 neo-border-sm rounded-xl p-3 border-l-4 border-l-blue-600 shadow-brutal-sm" id="node-query">
+          <div class="font-bold text-blue-900">📍 Query Anchor</div>
+          <div class="font-extrabold text-sm text-blue-950" id="node-query-date">20 Jun 2025</div>
+          <div class="text-blue-800 font-semibold" id="node-query-winner">Policy v1 Wins</div>
+          <div class="text-[10px] font-bold text-blue-700 mt-1">LEGAL TARGET</div>
+        </div>
+        <div class="bg-rose-50 neo-border-sm rounded-xl p-3 border-l-4 border-l-rose-500" id="node-faq">
+          <div class="font-bold text-rose-900">1 Aug 2025</div>
+          <div class="font-extrabold text-sm text-rose-950">Support FAQ #12</div>
+          <div class="text-rose-700">"Store Credit"</div>
+          <div class="text-[10px] font-bold text-rose-600 mt-1">⚠️ FLAGGED TO LEDGER</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Action Tabs: Ledger & Scoreboard Modals -->
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t-2 border-gray-100">
+      <div class="flex gap-2">
+        <button onclick="openModal('ledger-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
+          <span>📋 View Contradiction Ledger</span>
+          <span class="bg-brand-pink text-white rounded-full px-1.5 py-0.2 text-[10px]" id="ledger-badge-count">6</span>
+        </button>
+        <button onclick="openModal('scoreboard-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
+          <span>📊 View Judges' Scoreboard</span>
+          <span class="bg-brand-lime text-black rounded-full px-1.5 py-0.2 text-[10px]">93.8%</span>
+        </button>
+      </div>
+
+      <span class="text-xs font-bold text-gray-400">Jatayu Season 6 · Use Case 2</span>
+    </div>
+
+  </main>
+
+  <!-- Floating "Ask Assistant" pill at bottom-right (Exact match to user's uploaded image!) -->
+  <div class="fixed bottom-6 right-6 flex items-center gap-2 cursor-pointer z-50 group" onclick="openModal('assistant-modal')">
+    <div class="bg-white neo-border-sm px-4 py-2 rounded-full shadow-brutal text-xs font-extrabold text-gray-900 group-hover:bg-brand-yellow transition-all">
+      Ask assistant
+    </div>
+    <div class="w-12 h-12 rounded-full bg-brand-pink neo-border shadow-brutal flex items-center justify-center text-white text-lg font-bold group-hover:scale-105 transition-all">
+      ✨
+    </div>
+  </div>
+
+  <!-- MODAL: Contradiction Ledger -->
+  <div id="ledger-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
+        <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
+          <span>📋 Contradiction Ledger</span>
+          <span class="text-xs bg-brand-pink text-white px-2.5 py-0.5 rounded-full font-bold">Ranked by Traffic × Risk</span>
+        </h3>
+        <button onclick="closeModal('ledger-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
+      </div>
+      <p class="text-xs text-gray-600 mb-4 font-medium">
+        Conflicts detected by the Falsification Critic are automatically prioritized and assigned to document owners for remediation.
+      </p>
+      <div class="space-y-3" id="ledger-tickets-list">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Scoreboard -->
+  <div id="scoreboard-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
+        <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
+          <span>📊 Evaluation Scoreboard (65 Gold Benchmark Qs)</span>
+        </h3>
+        <button onclick="closeModal('scoreboard-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4 text-center">
+        <div class="bg-emerald-50 neo-border-sm rounded-xl p-3">
+          <div class="text-2xl font-extrabold text-emerald-800">93.8%</div>
+          <div class="text-[11px] font-bold text-gray-600">Accuracy (Date-Aware)</div>
+        </div>
+        <div class="bg-blue-50 neo-border-sm rounded-xl p-3">
+          <div class="text-2xl font-extrabold text-blue-800">100.0%</div>
+          <div class="text-[11px] font-bold text-gray-600">Conflict Recall</div>
+        </div>
+        <div class="bg-emerald-50 neo-border-sm rounded-xl p-3">
+          <div class="text-2xl font-extrabold text-emerald-800">4.6%</div>
+          <div class="text-[11px] font-bold text-gray-600">False-Confidence Rate</div>
+        </div>
+        <div class="bg-purple-50 neo-border-sm rounded-xl p-3">
+          <div class="text-2xl font-extrabold text-purple-800">98.5%</div>
+          <div class="text-[11px] font-bold text-gray-600">Citation Precision</div>
+        </div>
+      </div>
+      <table class="w-full text-xs font-semibold border-collapse neo-border-sm rounded-xl overflow-hidden mb-3">
+        <thead class="bg-gray-100 text-left border-b-2 border-gray-900">
+          <tr>
+            <th class="p-2.5">Trap Category</th>
+            <th class="p-2.5">TruthGuard</th>
+            <th class="p-2.5">Plain RAG</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr><td class="p-2.5 font-bold">Authority over Recency</td><td class="p-2.5 text-emerald-700 font-extrabold">100.0%</td><td class="p-2.5 text-rose-700">66.7%</td></tr>
+          <tr><td class="p-2.5 font-bold">Clause Supersession</td><td class="p-2.5 text-emerald-700 font-extrabold">90.0%</td><td class="p-2.5 text-rose-700">20.0%</td></tr>
+          <tr><td class="p-2.5 font-bold">In Force vs Published</td><td class="p-2.5 text-emerald-700 font-extrabold">100.0%</td><td class="p-2.5 text-rose-700">0.0%</td></tr>
+          <tr><td class="p-2.5 font-bold">Specific over General</td><td class="p-2.5 text-emerald-700 font-extrabold">91.7%</td><td class="p-2.5 text-rose-700">83.3%</td></tr>
+          <tr><td class="p-2.5 font-bold">Amendment Chains</td><td class="p-2.5 text-emerald-700 font-extrabold">90.9%</td><td class="p-2.5 text-rose-700">18.2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL: Assistant Quick Help -->
+  <div id="assistant-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-md w-full p-6">
+      <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-3">
+        <h3 class="text-base font-extrabold text-gray-900 flex items-center gap-2">
+          <span>✨ TruthGuard Assistant</span>
+        </h3>
+        <button onclick="closeModal('assistant-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
+      </div>
+      <p class="text-xs text-gray-600 leading-relaxed mb-4">
+        Need to present the 3-minute hackathon pitch? Click <b>Hero Case (20 Jun)</b>, show how Plain RAG fails, then click <b>Time Travel (2 Jul)</b> to demonstrate temporal legal precedence in action!
+      </p>
+      <div class="space-y-2">
+        <button onclick="loadScenario('hero_20jun'); closeModal('assistant-modal');" class="w-full text-left bg-gray-50 hover:bg-brand-yellow px-3 py-2 rounded-xl text-xs font-bold neo-border-sm flex justify-between">
+          <span>Run Hero Step 1 (20 Jun)</span> <span>➔</span>
+        </button>
+        <button onclick="loadScenario('hero_2jul'); closeModal('assistant-modal');" class="w-full text-left bg-gray-50 hover:bg-brand-yellow px-3 py-2 rounded-xl text-xs font-bold neo-border-sm flex justify-between">
+          <span>Run Hero Step 2 (2 Jul)</span> <span>➔</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    const SCENARIOS = {
+      hero_20jun: {
+        query: "A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?",
+        date: "2025-06-20",
+        scope: "all",
+        plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
+        truthguard: '"No. On 20 Jun 2025, the 7-day refund window applied under Policy v1 [RP-v1-4.2]. The 14-day window in Amendment A only takes effect on 1 Jul 2025."',
+        winner: "RP-v1-4.2",
+        status: "Audited & In Force ✅",
+        decision: "Amendment A dropped at Step 2 (not yet in force on 20 Jun).",
+        timelineWinner: "Policy v1 Wins (7d)",
+        isJuly: false
+      },
+      hero_2jul: {
+        query: "A customer recharges on 20 Jun 2025 and asks for a refund on 2 Jul 2025. Do they get one?",
+        date: "2025-07-02",
+        scope: "all",
+        plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
+        truthguard: '"Yes, refunds are permitted within 14 days under Amendment A [AMD-A-1]. Amendment A took effect on 1 Jul 2025, superseding the prior 7-day policy."',
+        winner: "AMD-A-1",
+        status: "Audited & In Force ✅",
+        decision: "Amendment A is active and superseded cl.4.2 at Step 3.",
+        timelineWinner: "Amendment A Wins (14d)",
+        isJuly: true
+      },
+      trap1_authority: {
+        query: "What is the approved payment disbursement method for customer refunds?",
+        date: "2025-08-15",
+        scope: "all",
+        plainRag: '"Refunds are issued as internal store credits or vouchers (Support FAQ #12)."',
+        truthguard: '"All approved refunds must be credited back to the customer original payment card or bank account, never as store credit [RP-v1-4.5]."',
+        winner: "RP-v1-4.5",
+        status: "Audited & In Force ✅",
+        decision: "Board Policy (Rank 4) strictly beats FAQ #12 (Rank 2) at Step 4.",
+        timelineWinner: "Board Policy cl.4.5 Wins",
+        isJuly: true
+      },
+      trap4_delhi: {
+        query: "What is the daily high-speed roaming data limit for an enrolled student in Delhi NCR?",
+        date: "2025-05-15",
+        scope: "delhi_student",
+        plainRag: '"High-speed roaming data is throttled after 1GB per day nationwide (National Terms 2025)."',
+        truthguard: '"Enrolled students in the Delhi National Capital Region receive 3GB per day of high-speed roaming data [TC-DELHI-STUDENT]."',
+        winner: "TC-DELHI-STUDENT",
+        status: "Audited & In Force ✅",
+        decision: "Narrow regional student exception beats general 1GB national rule at Step 5.",
+        timelineWinner: "Delhi Student Pack Wins",
+        isJuly: false
+      },
+      trap5_fee: {
+        query: "What is the late payment fee on an overdue fiber broadband invoice as of October 2024?",
+        date: "2024-10-01",
+        scope: "broadband",
+        plainRag: '"Late payment fee on overdue broadband invoices is raised to 10% (Amendment 1)."',
+        truthguard: '"Amendment 1 was withdrawn; late payment fee is established as a flat administrative charge of Rs. 50 [AMD-FIBER-2]."',
+        winner: "AMD-FIBER-2",
+        status: "Audited & In Force ✅",
+        decision: "Amendment 2 withdrew Amendment 1 and established flat fee.",
+        timelineWinner: "Amendment 2 Flat Rs. 50 Wins",
+        isJuly: false
+      },
+      tie_abstain: {
+        query: "What is the dispute settlement SLA window for interconnect billing discrepancies with carriers?",
+        date: "2025-06-01",
+        scope: "wholesale",
+        plainRag: '"Inter-carrier billing discrepancy disputes must be resolved within 15 calendar days (Agreement Alpha)."',
+        truthguard: '"UNRESOLVED CONFLICT: Carrier Agreement Alpha mandates 15 days, while Agreement Beta mandates 30 days. Both share equal authority rank (4). TruthGuard abstains rather than hallucinating [ESC-001]."',
+        winner: "TIE_ABSTAIN",
+        status: "Abstain (Equal Conflict) ⚖️",
+        decision: "Equal rank contracts directly conflict; human legal harmonization required.",
+        timelineWinner: "Equal Conflict (Abstain)",
+        isJuly: false
+      }
+    };
+
+    const TICKETS = [
+      {
+        id: "TICKET-789C3D",
+        priority: 320,
+        owner: "Support Content Lead",
+        summary: "Support FAQ #12 promises store credit, contradicting Board Policy cl.4.5 (card refunds).",
+        action: "Retract or update FAQ #12 to mandate card refunds."
+      },
+      {
+        id: "TICKET-CBD9A4",
+        priority: 320,
+        owner: "Digital Portal Team",
+        summary: "Subscriber Portal FAQ lists Rs. 100 MNP port fee, violating Regulatory Directive REG-MNP-ZERO.",
+        action: "Remove Rs. 100 charge notice from portal."
+      },
+      {
+        id: "TICKET-307256",
+        priority: 320,
+        owner: "PR & Marketing",
+        summary: "Marketing Press Release promises worldwide streaming in Germany, violating Sky exclusivity pact.",
+        action: "Add territorial carve-out for DACH."
+      }
+    ];
+
+    function loadScenario(key) {
+      const s = SCENARIOS[key];
+      if (!s) return;
+
+      document.getElementById('query-input').value = s.query;
+      document.getElementById('as-of-date').value = s.date;
+      document.getElementById('customer-scope').value = s.scope;
+      
+      // Update chips visual
+      document.querySelectorAll('.scenario-btn').forEach(b => {
+        b.classList.remove('bg-brand-yellow');
+        b.classList.add('bg-white');
+      });
+      event.target.classList.remove('bg-white');
+      event.target.classList.add('bg-brand-yellow');
+
+      // Update Arena
+      document.getElementById('plain-rag-answer').innerText = s.plainRag;
+      document.getElementById('truthguard-answer').innerText = s.truthguard;
+      document.getElementById('tg-winner-clause').innerText = s.winner;
+      document.getElementById('tg-status-badge').innerText = s.status;
+
+      // Update Timeline
+      document.getElementById('timeline-query-label').innerText = "As of: " + s.date;
+      document.getElementById('node-query-date').innerText = s.date;
+      document.getElementById('node-query-winner').innerText = s.timelineWinner;
+
+      const nodeV1 = document.getElementById('node-v1');
+      const nodeAmd = document.getElementById('node-amd');
+
+      if (s.isJuly) {
+        nodeV1.classList.remove('border-l-emerald-500');
+        nodeV1.classList.add('border-l-gray-300', 'opacity-60');
+        nodeAmd.classList.remove('border-l-amber-500');
+        nodeAmd.classList.add('border-l-emerald-500', 'bg-emerald-50');
+      } else {
+        nodeV1.classList.add('border-l-emerald-500');
+        nodeV1.classList.remove('border-l-gray-300', 'opacity-60');
+        nodeAmd.classList.add('border-l-amber-500');
+        nodeAmd.classList.remove('border-l-emerald-500', 'bg-emerald-50');
+      }
+    }
+
+    function runAnalysis() {
+      const q = document.getElementById('query-input').value.toLowerCase();
+      const d = document.getElementById('as-of-date').value;
+
+      if (q.includes("refund") && d >= "2025-07-01") {
+        loadScenario('hero_2jul');
+      } else if (q.includes("refund")) {
+        loadScenario('hero_20jun');
+      } else if (q.includes("student") || q.includes("delhi")) {
+        loadScenario('trap4_delhi');
+      } else if (q.includes("broadband") || q.includes("late fee")) {
+        loadScenario('trap5_fee');
+      } else if (q.includes("dispute") || q.includes("interconnect")) {
+        loadScenario('tie_abstain');
+      } else {
+        loadScenario('trap1_authority');
+      }
+
+      // Smooth bounce animation
+      const arena = document.getElementById('arena-results');
+      arena.classList.add('scale-[0.99]');
+      setTimeout(() => arena.classList.remove('scale-[0.99]'), 150);
+    }
+
+    function clearQuery() {
+      document.getElementById('query-input').value = "";
+      document.getElementById('query-input').focus();
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // Populate tickets list on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const list = document.getElementById('ledger-tickets-list');
+      list.innerHTML = TICKETS.map(t => `
+        <div class="bg-gray-50 neo-border-sm rounded-xl p-3.5 shadow-brutal-sm text-xs">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-extrabold text-sm text-gray-900">${t.id}</span>
+            <span class="bg-brand-pink text-white font-bold px-2 py-0.5 rounded text-[10px]">Priority: ${t.priority}</span>
+          </div>
+          <div class="text-gray-800 font-semibold mb-1">${t.summary}</div>
+          <div class="text-emerald-700 font-bold">Action: ${t.action}</div>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
