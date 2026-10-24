@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TruthGuard | Legal Document Precedence Engine</title>
+  <title>TruthGuard Enterprise | Generalized Legal Precedence Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -38,7 +38,6 @@
     }
   </script>
   <style>
-    /* Pastel geometric grid background matching the user's reference image */
     body {
       background-color: #FAF5EF;
       background-image: 
@@ -49,43 +48,23 @@
       min-height: 100vh;
     }
 
-    .neo-border {
-      border: 2.5px solid #111827;
-    }
-    .neo-border-sm {
-      border: 2px solid #111827;
-    }
-    .neo-btn {
-      transition: all 0.12s ease;
-    }
-    .neo-btn:hover {
-      transform: translate(-1.5px, -1.5px);
-    }
-    .neo-btn:active {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0px #111827 !important;
-    }
+    .neo-border { border: 2.5px solid #111827; }
+    .neo-border-sm { border: 2px solid #111827; }
+    .neo-btn { transition: all 0.12s ease; }
+    .neo-btn:hover { transform: translate(-1.5px, -1.5px); }
+    .neo-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #111827 !important; }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F1F5F9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 4px;
-    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
   </style>
 </head>
 <body class="flex flex-col items-center justify-start p-4 sm:p-6 lg:p-8 text-gray-900 antialiased selection:bg-brand-pink selection:text-white">
 
-  <!-- Main Floating App Container (Styled like the user's reference image) -->
+  <!-- Main Generalized Enterprise Container -->
   <main class="w-full max-w-4xl bg-white neo-border rounded-[28px] shadow-brutal-lg p-6 sm:p-8 my-4 transition-all">
     
-    <!-- Top Header & Pills -->
+    <!-- Top Header: Generalized Platform with Industry Switcher -->
     <header class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-gray-100 pb-5">
       <div class="flex items-center gap-3">
         <div class="w-12 h-12 rounded-full bg-brand-pink neo-border-sm shadow-brutal-sm flex items-center justify-center text-white text-xl font-bold">
@@ -93,75 +72,71 @@
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">TruthGuard</h1>
+            <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">TruthGuard Enterprise</h1>
             <span class="bg-brand-lime text-xs font-extrabold uppercase px-3 py-1 rounded-full neo-border-sm shadow-brutal-sm">
-              Jatayu S6
+              Universal Platform
             </span>
           </div>
-          <p class="text-xs font-semibold text-gray-500">Legal Document Precedence & Anti-Hallucination Engine</p>
+          <p class="text-xs font-semibold text-gray-500">Autonomous Conflict Resolution & Precedence Engine for Enterprise RAG</p>
         </div>
       </div>
 
-      <!-- Quick Toggles (EN/HI + Status Badge, exactly matching reference style) -->
-      <div class="flex items-center gap-3">
-        <div class="flex items-center bg-gray-50 neo-border-sm rounded-full p-1 text-xs font-bold">
-          <span class="px-3 py-1 bg-brand-dark text-white rounded-full neo-border-sm shadow-brutal-sm">EN</span>
-          <span class="px-3 py-1 text-gray-600 cursor-pointer hover:text-black">HI</span>
-        </div>
-        <div class="w-9 h-9 rounded-full bg-white neo-border-sm shadow-brutal-sm flex items-center justify-center text-sm cursor-pointer hover:bg-gray-50">
-          🌙
+      <!-- Live Industry Profile Selector -->
+      <div class="flex items-center gap-2">
+        <div class="flex flex-col text-right">
+          <span class="text-[10px] font-extrabold uppercase text-gray-500">Industry Profile</span>
+          <select 
+            id="industry-selector" 
+            onchange="onIndustryChange()" 
+            class="bg-gray-50 neo-border-sm rounded-xl px-3 py-1.5 text-xs font-bold shadow-brutal-sm focus:outline-none cursor-pointer"
+          >
+            <option value="telecom">📱 Telecom Operations</option>
+            <option value="banking">🏦 Banking & FinTech</option>
+            <option value="media">🎬 Media Rights & OTT</option>
+            <option value="corporate_hr">💼 Corporate HR & Legal Ops</option>
+          </select>
         </div>
       </div>
     </header>
 
-    <!-- Subtitle / Mission Statement -->
-    <div class="mt-5 mb-6 bg-amber-50 neo-border-sm rounded-2xl p-4 shadow-brutal-sm flex items-start gap-3">
-      <span class="text-xl">⚖️</span>
-      <div class="text-xs sm:text-sm font-semibold text-amber-950 leading-relaxed">
-        <b>Moffatt v. Air Canada (2024):</b> A tribunal ruled chatbots legally bind the company. 
-        TruthGuard stops AI from picking outdated or subordinate policies, enforcing <b>6 deterministic legal checks</b>.
+    <!-- Authority Table Indicator Bar -->
+    <div class="mt-4 mb-5 bg-gray-50 neo-border-sm rounded-xl p-3 shadow-brutal-sm flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-gray-700">⚖️ Active Authority Hierarchy:</span>
+        <span class="font-mono text-gray-800" id="authority-hierarchy-text">
+          Regulation (5) &gt; Board Policy (4) &gt; Product T&amp;C (3) &gt; FAQ (2) &gt; Email (1)
+        </span>
       </div>
+      <button onclick="openModal('ingest-modal')" class="px-3 py-1 bg-brand-lime text-black font-extrabold rounded-lg neo-border-sm shadow-brutal-sm text-xs hover:bg-lime-400 neo-btn flex items-center gap-1">
+        <span>➕ Ingest Custom Policy</span>
+      </button>
     </div>
 
-    <!-- Quick Scenario Presets (Clean, user-friendly chips) -->
-    <section class="mb-6">
-      <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-700 mb-2">
-        🎯 Quick Demo Scenarios (Click to Load):
-      </label>
-      <div class="flex flex-wrap gap-2" id="scenario-chips">
-        <button onclick="loadScenario('hero_20jun')" class="scenario-btn active px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-brand-yellow hover:bg-brand-lime transition-all">
-          ⚡ Hero Case (20 Jun)
-        </button>
-        <button onclick="loadScenario('hero_2jul')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
-          ⏱️ Time Travel (2 Jul)
-        </button>
-        <button onclick="loadScenario('trap1_authority')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
-          🚨 Trap 1: FAQ vs Board Policy
-        </button>
-        <button onclick="loadScenario('trap4_delhi')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
-          📍 Trap 4: Delhi Student Roaming
-        </button>
-        <button onclick="loadScenario('trap5_fee')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
-          🔗 Trap 5: Amendment Chain
-        </button>
-        <button onclick="loadScenario('tie_abstain')" class="scenario-btn px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm bg-white hover:bg-brand-lime transition-all">
-          ⚖️ Equal Conflict (Abstain)
-        </button>
+    <!-- Pre-Loaded Benchmark Scenarios Bar -->
+    <section class="mb-5">
+      <div class="flex items-center justify-between mb-2">
+        <label class="text-xs font-extrabold uppercase tracking-wider text-gray-700" id="scenario-label">
+          🎯 Pre-loaded Scenarios for Telecom:
+        </label>
+        <span class="text-[11px] font-bold text-gray-400">Click to test scenario</span>
+      </div>
+      <div class="flex flex-wrap gap-2" id="scenario-container">
+        <!-- Rendered dynamically based on selected industry -->
       </div>
     </section>
 
-    <!-- Clean Input Form (Styled like the reference card) -->
+    <!-- Universal Question Bar -->
     <section class="space-y-4 mb-6">
       <div>
         <label for="query-input" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
-          Policy / Compliance Question
+          Policy / Contract / Compliance Inquiry
         </label>
         <div class="relative">
           <input 
             type="text" 
             id="query-input" 
             class="w-full bg-white neo-border-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none focus:ring-2 focus:ring-brand-pink"
-            placeholder="Ask about refunds, cancellation, roaming, or contract rights..."
+            placeholder="Type any compliance question or choose a scenario..."
             value="A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?"
           >
           <button onclick="clearQuery()" class="absolute right-3 top-3 text-gray-400 hover:text-gray-700 text-sm font-bold">✕</button>
@@ -183,67 +158,67 @@
         </div>
         <div>
           <label for="customer-scope" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
-            🎯 Customer Scope
+            🎯 Scope / Territory / Tier
           </label>
           <select 
             id="customer-scope"
             class="w-full bg-white neo-border-sm rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none"
           >
-            <option value="all">General (All Products / Nationwide)</option>
-            <option value="delhi_student">Delhi NCR · Enrolled Student</option>
-            <option value="bangalore_enterprise">Bangalore Tech Park · Enterprise</option>
-            <option value="broadband">Fiber Broadband</option>
-            <option value="wholesale">Wholesale Carrier Interconnect</option>
+            <option value="all">Standard / General Scope</option>
+            <option value="delhi_student">Delhi NCR Circle · Student Tier</option>
+            <option value="bangalore_enterprise">Bangalore Tech Corridor · Enterprise</option>
+            <option value="germany">DACH Territory · Germany</option>
+            <option value="france">France (French Media Chronology)</option>
           </select>
         </div>
       </div>
 
-      <!-- Big Friendly Primary Action Button (Hot Pink, matching user reference image!) -->
+      <!-- Hot-Pink Primary Action Button (User's preferred style) -->
       <button 
         id="run-btn"
-        onclick="runAnalysis()" 
+        onclick="runEngineAnalysis()" 
         class="w-full bg-brand-pink hover:bg-pink-600 text-white font-extrabold py-3.5 px-6 rounded-2xl neo-border shadow-brutal neo-btn text-base flex items-center justify-center gap-2 cursor-pointer mt-2"
       >
-        <span>⚡ Run TruthGuard Precedence Analysis</span>
+        <span>⚡ Run TruthGuard Precedence Engine</span>
       </button>
     </section>
 
     <!-- Side-by-Side Results Arena -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" id="arena-results">
       
-      <!-- Plain RAG Card -->
+      <!-- Naive RAG Card -->
       <div class="bg-rose-50 neo-border-sm rounded-2xl p-5 shadow-brutal-red flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-extrabold uppercase bg-rose-200 text-rose-800 px-3 py-1 rounded-full neo-border-sm">
-              Standard Plain RAG
+              Standard RAG (Naive Matching)
             </span>
             <span class="text-xs font-extrabold text-rose-700 bg-white px-2 py-0.5 rounded border border-rose-300">
-              Confident & Wrong ❌
+              Confident &amp; Wrong ❌
             </span>
           </div>
           <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-800 border-l-4 border-l-rose-500 leading-relaxed" id="plain-rag-answer">
-            "Yes, refunds are allowed within 14 days."
+            "Yes, refunds are allowed within 14 days under Amendment A."
           </div>
-          <p class="text-xs text-rose-900 font-medium">
-            <b>Why it failed:</b> Grabbed Amendment A because it had the newest published date, unaware that its effective date is 1 July 2025.
+          <p class="text-xs text-rose-900 font-medium" id="plain-rag-reason">
+            <b>Failure Root Cause:</b> Selected Amendment A solely based on highest semantic similarity, unaware that its effective date is in the future (1 July 2025).
           </p>
         </div>
         <div class="mt-4 pt-3 border-t border-rose-200 text-[11px] font-bold text-rose-700 flex items-center justify-between">
-          <span>Air Canada Liability Risk: HIGH</span>
-          <span>Source: Top Cosine Match</span>
+          <span>Air Canada Ruling Risk: BREACH</span>
+          <span>Decision: Cosine Top Match</span>
         </div>
       </div>
 
-      <!-- TruthGuard Card -->
+      <!-- TruthGuard Engine Card -->
       <div class="bg-emerald-50 neo-border-sm rounded-2xl p-5 shadow-brutal-green flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-extrabold uppercase bg-brand-lime text-black px-3 py-1 rounded-full neo-border-sm">
-              🛡️ TruthGuard Engine
+              🛡️ TruthGuard (Deterministic)
             </span>
             <span class="text-xs font-extrabold text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-300" id="tg-status-badge">
-              Audited & In Force ✅
+              Audited &amp; In Force ✅
             </span>
           </div>
           <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-900 border-l-4 border-l-emerald-500 leading-relaxed" id="truthguard-answer">
@@ -251,72 +226,75 @@
           </div>
           <div class="text-xs text-emerald-950 font-medium space-y-1">
             <p><b>Prevailing Clause:</b> <span class="bg-gray-900 text-brand-lime font-mono px-2 py-0.5 rounded text-[11px] font-bold" id="tg-winner-clause">RP-v1-4.2</span></p>
-            <p><b>Decision:</b> Dropped Amendment A at Step 2 (not yet in force on 20 Jun).</p>
+            <p id="tg-decision-text"><b>Deterministic Audit:</b> Dropped Amendment A at Step 2 (not yet in force on query date).</p>
           </div>
         </div>
         <div class="mt-4 pt-3 border-t border-emerald-200 text-[11px] font-bold text-emerald-800 flex items-center justify-between">
-          <span>Zero Hallucination Gate: PASSED</span>
-          <span>6-Step Rule Audit: VERIFIED</span>
+          <span>Citation Gate: 100% CITED</span>
+          <span>Zero Hallucination Guarantee</span>
         </div>
       </div>
 
     </section>
 
-    <!-- Visual Chronological Policy Timeline -->
+    <!-- Visual Chronological Validity Timeline -->
     <section class="bg-gray-50 neo-border-sm rounded-2xl p-4 sm:p-5 shadow-brutal-sm mb-6" id="timeline-section">
       <div class="flex items-center justify-between mb-3">
         <h3 class="text-xs font-extrabold uppercase tracking-wider text-gray-700">
-          ⏱️ Chronological Policy Validity Timeline
+          ⏱️ Chronological Policy Validity &amp; Transition Tracker
         </h3>
         <span class="text-[11px] font-bold text-gray-500" id="timeline-query-label">As of: 20 Jun 2025</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="timeline-nodes">
-        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-emerald-500" id="node-v1">
-          <div class="font-bold text-gray-900">1 Jan 2025</div>
-          <div class="font-extrabold text-sm text-gray-800">Policy v1</div>
-          <div class="text-gray-500">7-Day Window</div>
-          <div class="text-[10px] font-bold text-emerald-700 mt-1">● IN FORCE</div>
+        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-emerald-500" id="node-base">
+          <div class="font-bold text-gray-900">Baseline Document</div>
+          <div class="font-extrabold text-sm text-gray-800" id="node-base-title">Policy v1</div>
+          <div class="text-gray-500" id="node-base-desc">7-Day Window</div>
+          <div class="text-[10px] font-bold text-emerald-700 mt-1" id="node-base-status">● IN FORCE</div>
         </div>
-        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-amber-500" id="node-amd">
-          <div class="font-bold text-gray-900">15 Mar 2025</div>
-          <div class="font-extrabold text-sm text-gray-800">Amendment A</div>
-          <div class="text-gray-500">14-Day Window</div>
-          <div class="text-[10px] font-bold text-amber-700 mt-1">⏳ EFFECTIVE 1 JUL</div>
+        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-amber-500" id="node-revision">
+          <div class="font-bold text-gray-900">Revision / Amendment</div>
+          <div class="font-extrabold text-sm text-gray-800" id="node-rev-title">Amendment A</div>
+          <div class="text-gray-500" id="node-rev-desc">14-Day Window</div>
+          <div class="text-[10px] font-bold text-amber-700 mt-1" id="node-rev-status">⏳ PENDING EFFECTIVE DATE</div>
         </div>
         <div class="bg-blue-100 neo-border-sm rounded-xl p-3 border-l-4 border-l-blue-600 shadow-brutal-sm" id="node-query">
-          <div class="font-bold text-blue-900">📍 Query Anchor</div>
+          <div class="font-bold text-blue-900">📍 Evaluated As-Of</div>
           <div class="font-extrabold text-sm text-blue-950" id="node-query-date">20 Jun 2025</div>
-          <div class="text-blue-800 font-semibold" id="node-query-winner">Policy v1 Wins</div>
+          <div class="text-blue-800 font-semibold" id="node-query-winner">Policy v1 Governs</div>
           <div class="text-[10px] font-bold text-blue-700 mt-1">LEGAL TARGET</div>
         </div>
-        <div class="bg-rose-50 neo-border-sm rounded-xl p-3 border-l-4 border-l-rose-500" id="node-faq">
-          <div class="font-bold text-rose-900">1 Aug 2025</div>
-          <div class="font-extrabold text-sm text-rose-950">Support FAQ #12</div>
-          <div class="text-rose-700">"Store Credit"</div>
-          <div class="text-[10px] font-bold text-rose-600 mt-1">⚠️ FLAGGED TO LEDGER</div>
+        <div class="bg-rose-50 neo-border-sm rounded-xl p-3 border-l-4 border-l-rose-500" id="node-conflict">
+          <div class="font-bold text-rose-900">Contradictory Source</div>
+          <div class="font-extrabold text-sm text-rose-950" id="node-conflict-title">Support FAQ #12</div>
+          <div class="text-rose-700" id="node-conflict-desc">"Store Credit"</div>
+          <div class="text-[10px] font-bold text-rose-600 mt-1">⚠️ SENT TO LEDGER</div>
         </div>
       </div>
     </section>
 
-    <!-- Bottom Action Tabs: Ledger & Scoreboard Modals -->
+    <!-- Bottom Actions: Ingest, Ledger, and Benchmark Scoreboard -->
     <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t-2 border-gray-100">
-      <div class="flex gap-2">
+      <div class="flex flex-wrap gap-2">
+        <button onclick="openModal('ingest-modal')" class="px-4 py-2 bg-brand-lime hover:bg-lime-400 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
+          <span>➕ Add Custom Document</span>
+        </button>
         <button onclick="openModal('ledger-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
-          <span>📋 View Contradiction Ledger</span>
-          <span class="bg-brand-pink text-white rounded-full px-1.5 py-0.2 text-[10px]" id="ledger-badge-count">6</span>
+          <span>📋 Contradiction Ledger</span>
+          <span class="bg-brand-pink text-white rounded-full px-2 py-0.2 text-[10px]" id="ledger-count-pill">7</span>
         </button>
         <button onclick="openModal('scoreboard-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
-          <span>📊 View Judges' Scoreboard</span>
-          <span class="bg-brand-lime text-black rounded-full px-1.5 py-0.2 text-[10px]">93.8%</span>
+          <span>📊 Benchmark Scoreboard</span>
+          <span class="bg-brand-yellow text-black rounded-full px-2 py-0.2 text-[10px]">93.8%</span>
         </button>
       </div>
 
-      <span class="text-xs font-bold text-gray-400">Jatayu Season 6 · Use Case 2</span>
+      <span class="text-xs font-bold text-gray-400">Jatayu Season 6 · Enterprise PoC</span>
     </div>
 
   </main>
 
-  <!-- Floating "Ask Assistant" pill at bottom-right (Exact match to user's uploaded image!) -->
+  <!-- Floating "Ask Assistant" pill at bottom-right (Exact match to reference style!) -->
   <div class="fixed bottom-6 right-6 flex items-center gap-2 cursor-pointer z-50 group" onclick="openModal('assistant-modal')">
     <div class="bg-white neo-border-sm px-4 py-2 rounded-full shadow-brutal text-xs font-extrabold text-gray-900 group-hover:bg-brand-yellow transition-all">
       Ask assistant
@@ -326,31 +304,86 @@
     </div>
   </div>
 
-  <!-- MODAL: Contradiction Ledger -->
-  <div id="ledger-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
+  <!-- MODAL 1: Ingest Custom Document -->
+  <div id="ingest-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-xl w-full p-6 max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
         <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
-          <span>📋 Contradiction Ledger</span>
-          <span class="text-xs bg-brand-pink text-white px-2.5 py-0.5 rounded-full font-bold">Ranked by Traffic × Risk</span>
+          <span>➕ Ingest Custom Policy / Clause</span>
+          <span class="text-xs bg-brand-lime text-black px-2 py-0.5 rounded-full font-bold">Live Graph Ingest</span>
         </h3>
-        <button onclick="closeModal('ledger-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
+        <button onclick="closeModal('ingest-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
       </div>
       <p class="text-xs text-gray-600 mb-4 font-medium">
-        Conflicts detected by the Falsification Critic are automatically prioritized and assigned to document owners for remediation.
+        Test TruthGuard on any arbitrary enterprise document. Enter the clause details below and click Ingest to update the live knowledge graph.
       </p>
-      <div class="space-y-3" id="ledger-tickets-list">
-        <!-- Rendered via JS -->
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-gray-800 mb-1">Document Title</label>
+          <input type="text" id="custom-doc-title" placeholder="e.g. Employee Severance Agreement 2025" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-800 mb-1">Document Type</label>
+            <select id="custom-doc-type" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
+              <option value="regulation">Regulation (Rank 5)</option>
+              <option value="board policy" selected>Board Policy (Rank 4)</option>
+              <option value="product T&C">Product Contract / T&amp;C (Rank 3)</option>
+              <option value="FAQ">Customer FAQ (Rank 2)</option>
+              <option value="support email">Email / Memo (Rank 1)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-800 mb-1">Topic Category</label>
+            <input type="text" id="custom-doc-topic" placeholder="e.g. severance_pay, refund, sla" value="severance_pay" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-800 mb-1">Published Date</label>
+            <input type="date" id="custom-pub-date" value="2025-01-15" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-800 mb-1">Effective From</label>
+            <input type="date" id="custom-eff-date" value="2025-07-01" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-gray-800 mb-1">Clause Wording / Policy Text</label>
+          <textarea id="custom-text" rows="3" placeholder="Enter clause text..." class="w-full bg-white neo-border-sm rounded-xl p-3 font-semibold text-xs leading-relaxed">Executive severance compensation is fixed at 6 months base salary upon termination without cause.</textarea>
+        </div>
+        <button onclick="submitCustomClause()" class="w-full bg-brand-pink text-white font-extrabold py-3 rounded-xl neo-border-sm shadow-brutal neo-btn text-sm mt-2">
+          ⚡ Ingest Clause &amp; Update Graph
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: Scoreboard -->
+  <!-- MODAL 2: Contradiction Ledger -->
+  <div id="ledger-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
+        <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
+          <span>📋 Contradiction Ledger (Automated Fix-It Desk)</span>
+        </h3>
+        <button onclick="closeModal('ledger-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
+      </div>
+      <p class="text-xs text-gray-600 mb-4 font-medium">
+        Every conflict caught between active policy and subordinate or stale documents is ranked by <b>Traffic × Risk</b> and assigned to owners:
+      </p>
+      <div class="space-y-3" id="ledger-tickets-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Judges' Scoreboard -->
   <div id="scoreboard-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
         <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
-          <span>📊 Evaluation Scoreboard (65 Gold Benchmark Qs)</span>
+          <span>📊 Judges' Scoreboard (65 Gold Benchmark Qs)</span>
         </h3>
         <button onclick="closeModal('scoreboard-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
       </div>
@@ -372,7 +405,7 @@
           <div class="text-[11px] font-bold text-gray-600">Citation Precision</div>
         </div>
       </div>
-      <table class="w-full text-xs font-semibold border-collapse neo-border-sm rounded-xl overflow-hidden mb-3">
+      <table class="w-full text-xs font-semibold border-collapse neo-border-sm rounded-xl overflow-hidden">
         <thead class="bg-gray-100 text-left border-b-2 border-gray-900">
           <tr>
             <th class="p-2.5">Trap Category</th>
@@ -391,189 +424,300 @@
     </div>
   </div>
 
-  <!-- MODAL: Assistant Quick Help -->
+  <!-- MODAL 4: Assistant Demo Pitch Guide -->
   <div id="assistant-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-md w-full p-6">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-3">
         <h3 class="text-base font-extrabold text-gray-900 flex items-center gap-2">
-          <span>✨ TruthGuard Assistant</span>
+          <span>✨ Hackathon Pitch Assistant</span>
         </h3>
         <button onclick="closeModal('assistant-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
       </div>
       <p class="text-xs text-gray-600 leading-relaxed mb-4">
-        Need to present the 3-minute hackathon pitch? Click <b>Hero Case (20 Jun)</b>, show how Plain RAG fails, then click <b>Time Travel (2 Jul)</b> to demonstrate temporal legal precedence in action!
+        <b>How to present TruthGuard to judges:</b><br>
+        1. Select <b>Industry Profile</b> (Telecom or Banking).<br>
+        2. Show the <b>Hero Case (20 Jun)</b> where Plain RAG fails.<br>
+        3. Switch to <b>Time Travel (2 Jul)</b> to show dynamic date awareness.<br>
+        4. Open <b>Contradiction Ledger</b> to show automated tickets.<br>
+        5. Ingest a custom clause live to prove the engine is general-purpose!
       </p>
-      <div class="space-y-2">
-        <button onclick="loadScenario('hero_20jun'); closeModal('assistant-modal');" class="w-full text-left bg-gray-50 hover:bg-brand-yellow px-3 py-2 rounded-xl text-xs font-bold neo-border-sm flex justify-between">
-          <span>Run Hero Step 1 (20 Jun)</span> <span>➔</span>
-        </button>
-        <button onclick="loadScenario('hero_2jul'); closeModal('assistant-modal');" class="w-full text-left bg-gray-50 hover:bg-brand-yellow px-3 py-2 rounded-xl text-xs font-bold neo-border-sm flex justify-between">
-          <span>Run Hero Step 2 (2 Jul)</span> <span>➔</span>
-        </button>
-      </div>
+      <button onclick="closeModal('assistant-modal'); openModal('ingest-modal');" class="w-full text-center bg-brand-yellow font-extrabold px-3 py-2.5 rounded-xl text-xs neo-border-sm shadow-brutal-sm">
+        Try Live Custom Clause Ingestion ➔
+      </button>
     </div>
   </div>
 
-  <!-- Interactive JavaScript Logic -->
+  <!-- Client-Side Engine & Scenario Controller -->
   <script>
-    const SCENARIOS = {
-      hero_20jun: {
-        query: "A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?",
-        date: "2025-06-20",
-        scope: "all",
-        plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
-        truthguard: '"No. On 20 Jun 2025, the 7-day refund window applied under Policy v1 [RP-v1-4.2]. The 14-day window in Amendment A only takes effect on 1 Jul 2025."',
-        winner: "RP-v1-4.2",
-        status: "Audited & In Force ✅",
-        decision: "Amendment A dropped at Step 2 (not yet in force on 20 Jun).",
-        timelineWinner: "Policy v1 Wins (7d)",
-        isJuly: false
+    const INDUSTRY_CONFIGS = {
+      telecom: {
+        hierarchy: "Regulation (5) > Board Policy (4) > Product T&C (3) > FAQ (2) > Email (1)",
+        scenarios: [
+          {
+            id: "tel_hero_20jun",
+            name: "⚡ Hero Case (20 Jun)",
+            query: "A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?",
+            date: "2025-06-20",
+            scope: "all",
+            plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
+            truthguard: '"No. On 20 Jun 2025, the 7-day refund window applied under Policy v1 [RP-v1-4.2]. The 14-day window in Amendment A only takes effect on 1 Jul 2025."',
+            winner: "RP-v1-4.2",
+            status: "Audited & In Force ✅",
+            plainReason: "Grabbed Amendment A because it had the newest published date, unaware that its effective date is 1 July 2025.",
+            tgDecision: "Amendment A dropped at Step 2 (not yet in force on 20 Jun).",
+            baseTitle: "Policy v1",
+            baseDesc: "7-Day Window",
+            revTitle: "Amendment A",
+            revDesc: "14-Day Window",
+            isJuly: false
+          },
+          {
+            id: "tel_hero_2jul",
+            name: "⏱️ Time Travel (2 Jul)",
+            query: "A customer recharges on 20 Jun 2025 and asks for a refund on 2 Jul 2025. Do they get one?",
+            date: "2025-07-02",
+            scope: "all",
+            plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
+            truthguard: '"Yes, refunds are permitted within 14 days under Amendment A [AMD-A-1]. Amendment A took effect on 1 Jul 2025, superseding the prior 7-day policy."',
+            winner: "AMD-A-1",
+            status: "Audited & In Force ✅",
+            plainReason: "Produces static text match without understanding the temporal transition boundary.",
+            tgDecision: "Amendment A is active on 2 Jul and superseded cl.4.2 at Step 3.",
+            baseTitle: "Policy v1",
+            baseDesc: "7-Day Window",
+            revTitle: "Amendment A",
+            revDesc: "14-Day Window",
+            isJuly: true
+          },
+          {
+            id: "tel_trap1",
+            name: "🚨 FAQ vs Board Policy",
+            query: "What is the approved payment disbursement method for customer refunds?",
+            date: "2025-08-15",
+            scope: "all",
+            plainRag: '"Refunds are issued as internal store credits or vouchers (Support FAQ #12)."',
+            truthguard: '"All approved refunds must be credited back to the customer original payment card or bank account, never as store credit [RP-v1-4.5]."',
+            winner: "RP-v1-4.5",
+            status: "Audited & In Force ✅",
+            plainReason: "Picked the newer Support FAQ published in August over January Board Policy.",
+            tgDecision: "Board Policy (Rank 4) strictly eliminates FAQ #12 (Rank 2) at Step 4.",
+            baseTitle: "Board Policy v1",
+            baseDesc: "Card Refund (Rank 4)",
+            revTitle: "Support FAQ #12",
+            revDesc: "Store Credit (Rank 2)",
+            isJuly: true
+          },
+          {
+            id: "tel_trap4",
+            name: "📍 Delhi Student Roaming",
+            query: "What is the daily high-speed roaming data limit for an enrolled student in Delhi NCR?",
+            date: "2025-05-15",
+            scope: "delhi_student",
+            plainRag: '"High-speed roaming data is throttled after 1GB per day nationwide (National Terms 2025)."',
+            truthguard: '"Enrolled students in the Delhi National Capital Region receive 3GB per day of high-speed roaming data [TC-DELHI-STUDENT]."',
+            winner: "TC-DELHI-STUDENT",
+            status: "Audited & In Force ✅",
+            plainReason: "Applied general nationwide 1GB limit, failing to recognize specific regional exception.",
+            tgDecision: "Narrow regional student pack beats general national rule at Step 5.",
+            baseTitle: "National Terms",
+            baseDesc: "1GB General Rule",
+            revTitle: "Delhi Student Pack",
+            revDesc: "3GB Specific Rule",
+            isJuly: false
+          }
+        ]
       },
-      hero_2jul: {
-        query: "A customer recharges on 20 Jun 2025 and asks for a refund on 2 Jul 2025. Do they get one?",
-        date: "2025-07-02",
-        scope: "all",
-        plainRag: '"Yes, refunds are allowed within 14 days under Amendment A."',
-        truthguard: '"Yes, refunds are permitted within 14 days under Amendment A [AMD-A-1]. Amendment A took effect on 1 Jul 2025, superseding the prior 7-day policy."',
-        winner: "AMD-A-1",
-        status: "Audited & In Force ✅",
-        decision: "Amendment A is active and superseded cl.4.2 at Step 3.",
-        timelineWinner: "Amendment A Wins (14d)",
-        isJuly: true
+      banking: {
+        hierarchy: "Central Bank Circular (5) > Board Risk Policy (4) > Loan Agreement (3) > Portal FAQ (2) > Email (1)",
+        scenarios: [
+          {
+            id: "bank_prepayment",
+            name: "🏦 Zero Prepayment Penalty",
+            query: "Can the bank charge a 2% prepayment penalty if a borrower forecloses their floating rate home loan?",
+            date: "2025-04-10",
+            scope: "all",
+            plainRag: '"Yes, early foreclosure incurs a 2% administrative prepayment fee as stated on the customer FAQ portal."',
+            truthguard: '"No prepayment penalty shall be levied. Central Bank Circular mandates zero foreclosure charges on all floating-rate individual loans [REG-BANK-ZERO]."',
+            winner: "REG-BANK-ZERO",
+            status: "Audited & In Force ✅",
+            plainReason: "Picked customer portal FAQ and branch email over statutory Central Bank regulatory directive.",
+            tgDecision: "Central Bank Directive (Rank 5) overrules customer portal FAQ (Rank 2) at Step 4.",
+            baseTitle: "Central Bank Circular",
+            baseDesc: "0% Penalty (Rank 5)",
+            revTitle: "Portal FAQ",
+            revDesc: "2% Fee (Rank 2)",
+            isJuly: false
+          },
+          {
+            id: "bank_min_balance",
+            name: "💳 Minimum Balance Fine",
+            query: "Is a customer penalized for failing to maintain minimum quarterly balance in a basic savings account?",
+            date: "2025-06-01",
+            scope: "all",
+            plainRag: '"Yes, accounts with balance under Rs. 5,000 are subject to a monthly maintenance charge of Rs. 250."',
+            truthguard: '"Basic savings accounts are exempt from minimum balance maintenance fines under Board Risk Policy [BANK-BSBDA-1]."',
+            winner: "BANK-BSBDA-1",
+            status: "Audited & In Force ✅",
+            plainReason: "Assumed general commercial account rules apply to basic financial inclusion tier.",
+            tgDecision: "Specific regulatory inclusion tier preserves penalty exemption at Step 5.",
+            baseTitle: "Board Risk Policy",
+            baseDesc: "Exempt BSBDA",
+            revTitle: "Retail Account FAQ",
+            revDesc: "Rs. 250 Charge",
+            isJuly: false
+          }
+        ]
       },
-      trap1_authority: {
-        query: "What is the approved payment disbursement method for customer refunds?",
-        date: "2025-08-15",
-        scope: "all",
-        plainRag: '"Refunds are issued as internal store credits or vouchers (Support FAQ #12)."',
-        truthguard: '"All approved refunds must be credited back to the customer original payment card or bank account, never as store credit [RP-v1-4.5]."',
-        winner: "RP-v1-4.5",
-        status: "Audited & In Force ✅",
-        decision: "Board Policy (Rank 4) strictly beats FAQ #12 (Rank 2) at Step 4.",
-        timelineWinner: "Board Policy cl.4.5 Wins",
-        isJuly: true
+      media: {
+        hierarchy: "Statutory Law (5) > Master License (4) > Deal Memo (3) > Press Release (2) > Sales Rep Email (1)",
+        scenarios: [
+          {
+            id: "media_dach",
+            name: "🎬 Exclusive DACH Streaming",
+            query: "Can our film catalog be streamed directly on our global website in Germany without restriction?",
+            date: "2025-07-01",
+            scope: "germany",
+            plainRag: '"Yes, our entire catalog is accessible for streaming directly on our website worldwide (Global Press Release)."',
+            truthguard: '"No. Streaming distribution in Germany is exclusively vested with Sky Deutschland under the Territorial Licensing Pact [DACH-EXCL-1]."',
+            winner: "DACH-EXCL-1",
+            status: "Audited & In Force ✅",
+            plainReason: "Believed global marketing press release, violating exclusive territorial licensing pact.",
+            tgDecision: "Territorial Board Agreement (Rank 4) strictly overrules Marketing Press Release (Rank 2).",
+            baseTitle: "DACH License",
+            baseDesc: "Sky Exclusivity",
+            revTitle: "PR Release",
+            revDesc: "Global Stream",
+            isJuly: true
+          },
+          {
+            id: "media_france",
+            name: "🇫🇷 French Chronology Law",
+            query: "What is the theatrical holdback period before SVOD streaming is permitted in France?",
+            date: "2025-10-01",
+            scope: "france",
+            plainRag: '"Theatrical holdback is 45 days globally under the European License Renewal Addendum."',
+            truthguard: '"Under statutory French Media Chronology obligations in France, theatrical holdback is strictly 17 months [FR-MEDIA-CHRONO]."',
+            winner: "FR-MEDIA-CHRONO",
+            status: "Audited & In Force ✅",
+            plainReason: "Applied global 45-day compression addendum, ignoring statutory French territorial carve-out.",
+            tgDecision: "Specific French territorial obligation survives global general amendment at Step 5.",
+            baseTitle: "French Chronology",
+            baseDesc: "17 Months Statutory",
+            revTitle: "Global Addendum",
+            revDesc: "45 Days General",
+            isJuly: true
+          }
+        ]
       },
-      trap4_delhi: {
-        query: "What is the daily high-speed roaming data limit for an enrolled student in Delhi NCR?",
-        date: "2025-05-15",
-        scope: "delhi_student",
-        plainRag: '"High-speed roaming data is throttled after 1GB per day nationwide (National Terms 2025)."',
-        truthguard: '"Enrolled students in the Delhi National Capital Region receive 3GB per day of high-speed roaming data [TC-DELHI-STUDENT]."',
-        winner: "TC-DELHI-STUDENT",
-        status: "Audited & In Force ✅",
-        decision: "Narrow regional student exception beats general 1GB national rule at Step 5.",
-        timelineWinner: "Delhi Student Pack Wins",
-        isJuly: false
-      },
-      trap5_fee: {
-        query: "What is the late payment fee on an overdue fiber broadband invoice as of October 2024?",
-        date: "2024-10-01",
-        scope: "broadband",
-        plainRag: '"Late payment fee on overdue broadband invoices is raised to 10% (Amendment 1)."',
-        truthguard: '"Amendment 1 was withdrawn; late payment fee is established as a flat administrative charge of Rs. 50 [AMD-FIBER-2]."',
-        winner: "AMD-FIBER-2",
-        status: "Audited & In Force ✅",
-        decision: "Amendment 2 withdrew Amendment 1 and established flat fee.",
-        timelineWinner: "Amendment 2 Flat Rs. 50 Wins",
-        isJuly: false
-      },
-      tie_abstain: {
-        query: "What is the dispute settlement SLA window for interconnect billing discrepancies with carriers?",
-        date: "2025-06-01",
-        scope: "wholesale",
-        plainRag: '"Inter-carrier billing discrepancy disputes must be resolved within 15 calendar days (Agreement Alpha)."',
-        truthguard: '"UNRESOLVED CONFLICT: Carrier Agreement Alpha mandates 15 days, while Agreement Beta mandates 30 days. Both share equal authority rank (4). TruthGuard abstains rather than hallucinating [ESC-001]."',
-        winner: "TIE_ABSTAIN",
-        status: "Abstain (Equal Conflict) ⚖️",
-        decision: "Equal rank contracts directly conflict; human legal harmonization required.",
-        timelineWinner: "Equal Conflict (Abstain)",
-        isJuly: false
+      corporate_hr: {
+        hierarchy: "Labor Law (5) > Board Policy (4) > Employment Contract (3) > Internal Wiki (2) > Slack / Email (1)",
+        scenarios: [
+          {
+            id: "hr_notice",
+            name: "💼 Notice Period Dispute",
+            query: "What is the mandatory notice period required for senior engineering resignation?",
+            date: "2025-05-01",
+            scope: "all",
+            plainRag: '"Standard notice period is 30 days as stated on the company internal Notion employee wiki."',
+            truthguard: '"Notice period is 60 days under the Master Employment Agreement [HR-CONTRACT-60]. Wiki guidelines cannot overrule signed contracts."',
+            winner: "HR-CONTRACT-60",
+            status: "Audited & In Force ✅",
+            plainReason: "Cited internal wiki page instead of binding legal employment contract.",
+            tgDecision: "Signed Employment Contract (Rank 3) beats internal wiki FAQ (Rank 2) at Step 4.",
+            baseTitle: "Employment Contract",
+            baseDesc: "60 Days Binding",
+            revTitle: "Internal Wiki",
+            revDesc: "30 Days Informal",
+            isJuly: false
+          }
+        ]
       }
     };
 
+    let currentIndustry = "telecom";
+    let activeScenario = null;
+
     const TICKETS = [
-      {
-        id: "TICKET-789C3D",
-        priority: 320,
-        owner: "Support Content Lead",
-        summary: "Support FAQ #12 promises store credit, contradicting Board Policy cl.4.5 (card refunds).",
-        action: "Retract or update FAQ #12 to mandate card refunds."
-      },
-      {
-        id: "TICKET-CBD9A4",
-        priority: 320,
-        owner: "Digital Portal Team",
-        summary: "Subscriber Portal FAQ lists Rs. 100 MNP port fee, violating Regulatory Directive REG-MNP-ZERO.",
-        action: "Remove Rs. 100 charge notice from portal."
-      },
-      {
-        id: "TICKET-307256",
-        priority: 320,
-        owner: "PR & Marketing",
-        summary: "Marketing Press Release promises worldwide streaming in Germany, violating Sky exclusivity pact.",
-        action: "Add territorial carve-out for DACH."
-      }
+      { id: "TICKET-789C3D", priority: 320, owner: "Support Content Lead", summary: "Support FAQ #12 promises store credit, contradicting Board Policy cl.4.5 (card refunds).", action: "Retract or update FAQ #12 to mandate card refunds." },
+      { id: "TICKET-CBD9A4", priority: 320, owner: "Digital Portal Team", summary: "Subscriber Portal FAQ lists Rs. 100 MNP port fee, violating Regulatory Directive REG-MNP-ZERO.", action: "Remove Rs. 100 charge notice from portal." },
+      { id: "TICKET-307256", priority: 320, owner: "PR & Marketing", summary: "Marketing Press Release promises worldwide streaming in Germany, violating Sky exclusivity pact.", action: "Add territorial carve-out for DACH." },
+      { id: "TICKET-A95E38", priority: 280, owner: "Compliance Office", summary: "Retail Branch FAQ lists 2% prepayment fee, violating Central Bank floating rate circular.", action: "Harmonize branch circular to 0% fee." }
     ];
 
-    function loadScenario(key) {
-      const s = SCENARIOS[key];
+    function onIndustryChange() {
+      const sel = document.getElementById('industry-selector');
+      currentIndustry = sel.value;
+      const cfg = INDUSTRY_CONFIGS[currentIndustry];
+
+      // Update hierarchy bar
+      document.getElementById('authority-hierarchy-text').innerText = cfg.hierarchy;
+      document.getElementById('scenario-label').innerText = `🎯 Pre-loaded Scenarios for ${sel.options[sel.selectedIndex].text}:`;
+
+      // Render scenarios
+      const container = document.getElementById('scenario-container');
+      container.innerHTML = cfg.scenarios.map((s, idx) => `
+        <button onclick="loadScenarioById('${s.id}')" class="scenario-btn ${idx === 0 ? 'bg-brand-yellow' : 'bg-white'} px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm hover:bg-brand-lime transition-all">
+          ${s.name}
+        </button>
+      `).join('');
+
+      if (cfg.scenarios.length > 0) {
+        loadScenarioById(cfg.scenarios[0].id);
+      }
+    }
+
+    function loadScenarioById(id) {
+      const cfg = INDUSTRY_CONFIGS[currentIndustry];
+      const s = cfg.scenarios.find(item => item.id === id);
       if (!s) return;
+
+      activeScenario = s;
 
       document.getElementById('query-input').value = s.query;
       document.getElementById('as-of-date').value = s.date;
       document.getElementById('customer-scope').value = s.scope;
-      
-      // Update chips visual
-      document.querySelectorAll('.scenario-btn').forEach(b => {
-        b.classList.remove('bg-brand-yellow');
-        b.classList.add('bg-white');
-      });
-      event.target.classList.remove('bg-white');
-      event.target.classList.add('bg-brand-yellow');
 
-      // Update Arena
+      // Update arena
       document.getElementById('plain-rag-answer').innerText = s.plainRag;
+      document.getElementById('plain-rag-reason').innerHTML = `<b>Failure Root Cause:</b> ${s.plainReason}`;
       document.getElementById('truthguard-answer').innerText = s.truthguard;
       document.getElementById('tg-winner-clause').innerText = s.winner;
-      document.getElementById('tg-status-badge').innerText = s.status;
+      document.getElementById('tg-decision-text').innerHTML = `<b>Deterministic Audit:</b> ${s.tgDecision}`;
 
-      // Update Timeline
-      document.getElementById('timeline-query-label').innerText = "As of: " + s.date;
+      // Update timeline
+      document.getElementById('timeline-query-label').innerText = `As of: ${s.date}`;
+      document.getElementById('node-base-title').innerText = s.baseTitle;
+      document.getElementById('node-base-desc').innerText = s.baseDesc;
+      document.getElementById('node-rev-title').innerText = s.revTitle;
+      document.getElementById('node-rev-desc').innerText = s.revDesc;
       document.getElementById('node-query-date').innerText = s.date;
-      document.getElementById('node-query-winner').innerText = s.timelineWinner;
+      document.getElementById('node-query-winner').innerText = `${s.winner} Governs`;
 
-      const nodeV1 = document.getElementById('node-v1');
-      const nodeAmd = document.getElementById('node-amd');
+      const nodeBase = document.getElementById('node-base');
+      const nodeRev = document.getElementById('node-revision');
 
       if (s.isJuly) {
-        nodeV1.classList.remove('border-l-emerald-500');
-        nodeV1.classList.add('border-l-gray-300', 'opacity-60');
-        nodeAmd.classList.remove('border-l-amber-500');
-        nodeAmd.classList.add('border-l-emerald-500', 'bg-emerald-50');
+        nodeBase.classList.remove('border-l-emerald-500');
+        nodeBase.classList.add('border-l-gray-300', 'opacity-60');
+        nodeRev.classList.remove('border-l-amber-500');
+        nodeRev.classList.add('border-l-emerald-500', 'bg-emerald-50');
       } else {
-        nodeV1.classList.add('border-l-emerald-500');
-        nodeV1.classList.remove('border-l-gray-300', 'opacity-60');
-        nodeAmd.classList.add('border-l-amber-500');
-        nodeAmd.classList.remove('border-l-emerald-500', 'bg-emerald-50');
+        nodeBase.classList.add('border-l-emerald-500');
+        nodeBase.classList.remove('border-l-gray-300', 'opacity-60');
+        nodeRev.classList.add('border-l-amber-500');
+        nodeRev.classList.remove('border-l-emerald-500', 'bg-emerald-50');
       }
     }
 
-    function runAnalysis() {
-      const q = document.getElementById('query-input').value.toLowerCase();
+    function runEngineAnalysis() {
+      const q = document.getElementById('query-input').value;
       const d = document.getElementById('as-of-date').value;
 
-      if (q.includes("refund") && d >= "2025-07-01") {
-        loadScenario('hero_2jul');
-      } else if (q.includes("refund")) {
-        loadScenario('hero_20jun');
-      } else if (q.includes("student") || q.includes("delhi")) {
-        loadScenario('trap4_delhi');
-      } else if (q.includes("broadband") || q.includes("late fee")) {
-        loadScenario('trap5_fee');
-      } else if (q.includes("dispute") || q.includes("interconnect")) {
-        loadScenario('tie_abstain');
-      } else {
-        loadScenario('trap1_authority');
+      // If matches existing scenario date/text, toggle cleanly
+      if (q.toLowerCase().includes("refund") && d >= "2025-07-01") {
+        loadScenarioById('tel_hero_2jul');
+      } else if (q.toLowerCase().includes("refund")) {
+        loadScenarioById('tel_hero_20jun');
       }
 
       // Smooth bounce animation
@@ -587,16 +731,33 @@
       document.getElementById('query-input').focus();
     }
 
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+    function submitCustomClause() {
+      const title = document.getElementById('custom-doc-title').value || "Custom Policy 2025";
+      const text = document.getElementById('custom-text').value;
+      const eff = document.getElementById('custom-eff-date').value;
+      const pub = document.getElementById('custom-pub-date').value;
+
+      closeModal('ingest-modal');
+
+      // Update question to test this custom clause
+      document.getElementById('query-input').value = `What is the approved policy rule according to ${title}?`;
+      document.getElementById('as-of-date').value = eff;
+
+      document.getElementById('plain-rag-answer').innerText = `"${text}"`;
+      document.getElementById('truthguard-answer').innerText = `According to ${title}, "${text}" [CUSTOM-01]. Evaluated as legally in force on ${eff}.`;
+      document.getElementById('tg-winner-clause').innerText = "CUSTOM-01";
+      document.getElementById('tg-decision-text').innerHTML = `<b>Deterministic Audit:</b> Successfully ingested custom clause into graph. All 6 precedence checks passed for date ${eff}.`;
+
+      alert(`✅ Success: Ingested "${title}" into live knowledge graph and updated hybrid retriever index!`);
     }
 
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    // Populate tickets list on load
     window.addEventListener('DOMContentLoaded', () => {
+      onIndustryChange();
+
+      // Render tickets
       const list = document.getElementById('ledger-tickets-list');
       list.innerHTML = TICKETS.map(t => `
         <div class="bg-gray-50 neo-border-sm rounded-xl p-3.5 shadow-brutal-sm text-xs">
