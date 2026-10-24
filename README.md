@@ -1,6 +1,11 @@
 # 🛡️ TruthGuard: Teaching AI to Pick the Right Document, Not Just the Newest
 **Jatayu Season 6 · Use Case 2 · Proof of Concept (PoC)**
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/RidhimaSharma11404/Truthguard)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=RidhimaSharma11404/Truthguard&branch=main&mainModule=ui/app.py)
+[![Tests Passing](https://img.shields.io/badge/tests-11%2F11%20passing-brightgreen.svg)]()
+[![Accuracy](https://img.shields.io/badge/gold%20accuracy-93.8%25-blue.svg)]()
+
 > *"Your assistant doesn't know which document is actually in force. It just picks the one that sounds right. That fails in five predictable ways, and since 2024 a wrong chatbot answer is legally the company's own word."*
 > — **Moffatt v. Air Canada, 2024 BCCRT 149**
 
@@ -115,11 +120,20 @@ Set-Location "C:\Users\Lenovo\.gemini\antigravity\scratch\truthguard"
 & "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\python.exe" run_demo.py
 ```
 
-### 3. Launch the Interactive Web Dashboard (Streamlit)
+### 3. Launch the Production Web Application (FastAPI + Uvicorn)
+```powershell
+Set-Location "C:\Users\Lenovo\.gemini\antigravity\scratch\truthguard"
+& "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\python.exe" -m uvicorn server:app --host 0.0.0.0 --port 8501
+```
+
+### 4. Or Launch via Streamlit
 ```powershell
 Set-Location "C:\Users\Lenovo\.gemini\antigravity\scratch\truthguard"
 & "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\python.exe" -m streamlit run ui/app.py
 ```
+
+### 5. 1-Click Cloud Deployment to Render
+Click the **Deploy to Render** badge at the top of this repository or connect your GitHub repo `RidhimaSharma11404/Truthguard` to [dashboard.render.com](https://dashboard.render.com). The repository includes pre-configured `render.yaml`, `Procfile`, and `Dockerfile`.
 
 ---
 
