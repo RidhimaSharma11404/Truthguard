@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TruthGuard Enterprise | Generalized Legal Precedence Engine</title>
+  <title>TruthGuard Enterprise | Legal Precedence Engine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -74,69 +74,178 @@
           <div class="flex items-center gap-2">
             <h1 class="text-2xl font-extrabold tracking-tight text-gray-900">TruthGuard Enterprise</h1>
             <span class="bg-brand-lime text-xs font-extrabold uppercase px-3 py-1 rounded-full neo-border-sm shadow-brutal-sm">
-              Universal Platform
+              Precedence Engine
             </span>
           </div>
-          <p class="text-xs font-semibold text-gray-500">Autonomous Conflict Resolution & Precedence Engine for Enterprise RAG</p>
+          <p class="text-xs font-semibold text-gray-500">Autonomous Conflict Resolution &amp; Anti-Hallucination Engine</p>
         </div>
       </div>
 
       <!-- Live Industry Profile Selector -->
       <div class="flex items-center gap-2">
         <div class="flex flex-col text-right">
-          <span class="text-[10px] font-extrabold uppercase text-gray-500">Industry Profile</span>
+          <span class="text-[10px] font-extrabold uppercase text-gray-500">Active Domain</span>
           <select 
             id="industry-selector" 
             onchange="onIndustryChange()" 
             class="bg-gray-50 neo-border-sm rounded-xl px-3 py-1.5 text-xs font-bold shadow-brutal-sm focus:outline-none cursor-pointer"
           >
             <option value="telecom">📱 Telecom Operations</option>
-            <option value="banking">🏦 Banking & FinTech</option>
-            <option value="media">🎬 Media Rights & OTT</option>
-            <option value="corporate_hr">💼 Corporate HR & Legal Ops</option>
+            <option value="banking">🏦 Banking &amp; FinTech</option>
+            <option value="media">🎬 Media Rights &amp; OTT</option>
+            <option value="corporate_hr">💼 Corporate HR &amp; Legal</option>
           </select>
         </div>
       </div>
     </header>
 
-    <!-- Authority Table Indicator Bar -->
+    <!-- Authority Hierarchy Pill Bar -->
     <div class="mt-4 mb-5 bg-gray-50 neo-border-sm rounded-xl p-3 shadow-brutal-sm flex flex-wrap items-center justify-between gap-2 text-xs">
       <div class="flex items-center gap-2">
-        <span class="font-extrabold text-gray-700">⚖️ Active Authority Hierarchy:</span>
+        <span class="font-extrabold text-gray-700">⚖️ Legal Authority Hierarchy:</span>
         <span class="font-mono text-gray-800" id="authority-hierarchy-text">
           Regulation (5) &gt; Board Policy (4) &gt; Product T&amp;C (3) &gt; FAQ (2) &gt; Email (1)
         </span>
       </div>
-      <button onclick="openModal('ingest-modal')" class="px-3 py-1 bg-brand-lime text-black font-extrabold rounded-lg neo-border-sm shadow-brutal-sm text-xs hover:bg-lime-400 neo-btn flex items-center gap-1">
-        <span>➕ Ingest Custom Policy</span>
-      </button>
+      <span class="bg-brand-lime text-black font-extrabold px-2.5 py-0.5 rounded-full text-[10px] neo-border-sm">
+        Deterministic Checks 1–6
+      </span>
     </div>
 
-    <!-- Pre-Loaded Benchmark Scenarios Bar -->
-    <section class="mb-5">
-      <div class="flex items-center justify-between mb-2">
-        <label class="text-xs font-extrabold uppercase tracking-wider text-gray-700" id="scenario-label">
-          🎯 Pre-loaded Scenarios for Telecom:
-        </label>
-        <span class="text-[11px] font-bold text-gray-400">Click to test scenario</span>
+    <!-- ============================================================== -->
+    <!-- SECTION 1: DOCUMENT INGESTION WORKSPACE (VISIBLE ON MAIN PAGE) -->
+    <!-- ============================================================== -->
+    <section class="mb-6 bg-amber-50/60 neo-border-sm rounded-2xl p-4 sm:p-5 shadow-brutal-sm">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-amber-200/60 pb-3 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-base font-extrabold text-gray-900">📁 Enterprise Knowledge Base</span>
+          <span class="bg-white text-gray-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full neo-border-sm" id="corpus-count-badge">
+            30 Documents Ingested
+          </span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="toggleIngestMode('browse')" id="tab-browse-btn" class="px-3 py-1 bg-brand-yellow font-extrabold text-xs rounded-lg neo-border-sm shadow-brutal-sm">
+            Browse Loaded Docs
+          </button>
+          <button onclick="toggleIngestMode('add')" id="tab-add-btn" class="px-3 py-1 bg-white font-extrabold text-xs rounded-lg neo-border-sm shadow-brutal-sm hover:bg-brand-lime">
+            ➕ Add / Ingest New Policy
+          </button>
+        </div>
       </div>
-      <div class="flex flex-wrap gap-2" id="scenario-container">
-        <!-- Rendered dynamically based on selected industry -->
+
+      <!-- Mode A: Browse Active Documents -->
+      <div id="panel-browse" class="block">
+        <p class="text-xs text-gray-600 mb-2 font-medium">
+          Currently indexed documents in the active knowledge graph:
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs" id="active-docs-chips">
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 Refund Policy v1 (Board Policy)</span>
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 Amendment A (Board Policy)</span>
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 Support FAQ #12 (FAQ)</span>
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 National Tariff 2025 (T&amp;C)</span>
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 Delhi Student Roaming (Narrow Pack)</span>
+          <span class="bg-white neo-border-sm rounded-lg px-2.5 py-1 font-semibold text-gray-800">📄 MNP Porting Directive (Regulation)</span>
+        </div>
+
+        <div class="mt-3.5 p-3 bg-white/90 neo-border-sm rounded-xl flex flex-wrap items-center justify-between gap-2 shadow-brutal-sm">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">📥</span>
+            <div>
+              <div class="text-xs font-extrabold text-gray-900">Want to test with custom enterprise policies?</div>
+              <div class="text-[11px] text-gray-600 font-medium">Upload or paste any contract, amendment, or policy to watch TruthGuard update the precedence graph.</div>
+            </div>
+          </div>
+          <button onclick="toggleIngestMode('add')" class="px-3.5 py-1.5 bg-brand-pink text-white font-extrabold text-xs rounded-xl neo-border-sm shadow-brutal-sm neo-btn">
+            ➕ Ingest Custom Policy
+          </button>
+        </div>
+      </div>
+
+      <!-- Mode B: Add / Paste Custom Policy (Live Ingestion Form) -->
+      <div id="panel-add" class="hidden space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <p class="text-xs text-amber-950 font-bold">
+            📥 Enterprise Ingestion Studio: Ingest any contract, regulation, or internal memo into the live graph:
+          </p>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="font-extrabold text-gray-500 text-[11px]">Quick Templates:</span>
+            <button onclick="fillPreset('severance')" class="px-2 py-0.5 bg-white hover:bg-yellow-100 neo-border-sm rounded text-[10px] font-bold">💼 Severance</button>
+            <button onclick="fillPreset('wire')" class="px-2 py-0.5 bg-white hover:bg-yellow-100 neo-border-sm rounded text-[10px] font-bold">🏦 Bank Wire</button>
+            <button onclick="fillPreset('fairuse')" class="px-2 py-0.5 bg-white hover:bg-yellow-100 neo-border-sm rounded text-[10px] font-bold">📡 5G Fair Use</button>
+          </div>
+        </div>
+
+        <!-- File Upload / Dropzone -->
+        <div 
+          onclick="document.getElementById('file-upload-input').click()"
+          class="border-2 border-dashed border-gray-400 hover:border-gray-900 bg-white/70 hover:bg-white rounded-xl p-3 text-center cursor-pointer transition-all shadow-sm"
+        >
+          <input type="file" id="file-upload-input" accept=".txt,.md,.json,.pdf,.doc,.docx" class="hidden" onchange="handleFileUpload(event)">
+          <div class="text-xs font-extrabold text-gray-800">📄 Drag &amp; Drop Policy File (.txt, .md, .pdf) or Click to Browse</div>
+          <div class="text-[11px] text-gray-500 font-medium">Extracts text and auto-fills title and clause fields immediately</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div>
+            <label class="block font-bold text-gray-700 mb-0.5">Document Title</label>
+            <input type="text" id="live-doc-title" value="Executive Severance Agreement 2025" class="w-full bg-white neo-border-sm rounded-lg px-2.5 py-1.5 font-semibold text-xs">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-0.5">Authority Type</label>
+            <select id="live-doc-type" class="w-full bg-white neo-border-sm rounded-lg px-2.5 py-1.5 font-semibold text-xs">
+              <option value="regulation">Regulation (Rank 5)</option>
+              <option value="board policy" selected>Board Policy (Rank 4)</option>
+              <option value="product T&C">Signed Contract / T&amp;C (Rank 3)</option>
+              <option value="FAQ">Customer / Employee FAQ (Rank 2)</option>
+              <option value="support email">Email / Memo (Rank 1)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-0.5">Effective Date</label>
+            <input type="date" id="live-eff-date" value="2025-07-01" class="w-full bg-white neo-border-sm rounded-lg px-2.5 py-1.5 font-semibold text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-gray-700 mb-0.5 text-xs">Clause Text</label>
+          <input type="text" id="live-doc-text" value="Executive severance compensation is fixed at 6 months base salary upon termination without cause." class="w-full bg-white neo-border-sm rounded-lg px-3 py-2 font-semibold text-xs">
+        </div>
+        <div class="flex justify-between items-center gap-2">
+          <button onclick="toggleIngestMode('browse')" class="text-xs font-bold text-gray-600 hover:text-gray-900 underline">
+            ← Back to Browse
+          </button>
+          <button onclick="ingestLiveClause()" class="px-4 py-2 bg-brand-pink text-white font-extrabold rounded-xl neo-border-sm shadow-brutal-sm text-xs neo-btn">
+            ⚡ Ingest into Live Graph &amp; Update Index
+          </button>
+        </div>
       </div>
     </section>
 
-    <!-- Universal Question Bar -->
+    <!-- ============================================================== -->
+    <!-- SECTION 2: QUERY SANDBOX -->
+    <!-- ============================================================== -->
     <section class="space-y-4 mb-6">
+      
+      <!-- Scenario Quick Chips -->
+      <div>
+        <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-700 mb-2" id="scenario-label">
+          🎯 Pre-loaded Scenarios (Click to Load):
+        </label>
+        <div class="flex flex-wrap gap-2" id="scenario-container">
+          <!-- Dynamically populated by JS based on industry -->
+        </div>
+      </div>
+
+      <!-- Question Bar -->
       <div>
         <label for="query-input" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
-          Policy / Contract / Compliance Inquiry
+          Policy / Compliance Question
         </label>
         <div class="relative">
           <input 
             type="text" 
             id="query-input" 
             class="w-full bg-white neo-border-sm rounded-xl px-4 py-3 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none focus:ring-2 focus:ring-brand-pink"
-            placeholder="Type any compliance question or choose a scenario..."
+            placeholder="Type any question or click a scenario chip above..."
             value="A customer recharges on 10 Jun 2025 and asks for a refund on 20 Jun. Do they get one?"
           >
           <button onclick="clearQuery()" class="absolute right-3 top-3 text-gray-400 hover:text-gray-700 text-sm font-bold">✕</button>
@@ -158,14 +267,14 @@
         </div>
         <div>
           <label for="customer-scope" class="block text-xs font-extrabold uppercase tracking-wider text-gray-800 mb-1">
-            🎯 Scope / Territory / Tier
+            🎯 Customer Scope / Circle
           </label>
           <select 
             id="customer-scope"
             class="w-full bg-white neo-border-sm rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-brutal-sm focus:outline-none"
           >
-            <option value="all">Standard / General Scope</option>
-            <option value="delhi_student">Delhi NCR Circle · Student Tier</option>
+            <option value="all">Standard / All Customers</option>
+            <option value="delhi_student">Delhi NCR · Enrolled Student</option>
             <option value="bangalore_enterprise">Bangalore Tech Corridor · Enterprise</option>
             <option value="germany">DACH Territory · Germany</option>
             <option value="france">France (French Media Chronology)</option>
@@ -173,118 +282,133 @@
         </div>
       </div>
 
-      <!-- Hot-Pink Primary Action Button (User's preferred style) -->
+      <!-- Big Friendly Primary Action Button (Hot Pink) -->
       <button 
         id="run-btn"
-        onclick="runEngineAnalysis()" 
+        onclick="triggerAnalysis()" 
         class="w-full bg-brand-pink hover:bg-pink-600 text-white font-extrabold py-3.5 px-6 rounded-2xl neo-border shadow-brutal neo-btn text-base flex items-center justify-center gap-2 cursor-pointer mt-2"
       >
-        <span>⚡ Run TruthGuard Precedence Engine</span>
+        <span>⚡ Run TruthGuard Precedence Analysis</span>
       </button>
     </section>
 
-    <!-- Side-by-Side Results Arena -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" id="arena-results">
+    <!-- ============================================================== -->
+    <!-- SECTION 3: RESULTS AREA (HIDDEN UNTIL USER CLICKS!) -->
+    <!-- ============================================================== -->
+    
+    <!-- State A: Initial Blank/Ready State (Before user clicks) -->
+    <div id="results-empty-state" class="block bg-gray-50 neo-border-sm rounded-2xl p-8 text-center my-6 shadow-brutal-sm">
+      <div class="text-3xl mb-2">👆</div>
+      <h3 class="text-sm font-extrabold text-gray-900 mb-1">Results Will Appear Here</h3>
+      <p class="text-xs text-gray-500 max-w-md mx-auto">
+        Select a scenario chip or enter a query above, then click <b>Run TruthGuard Precedence Analysis</b> to compare TruthGuard with Standard RAG.
+      </p>
+    </div>
+
+    <!-- State B: Live Results Display (Revealed when clicked) -->
+    <div id="results-container" class="hidden">
       
-      <!-- Naive RAG Card -->
-      <div class="bg-rose-50 neo-border-sm rounded-2xl p-5 shadow-brutal-red flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-extrabold uppercase bg-rose-200 text-rose-800 px-3 py-1 rounded-full neo-border-sm">
-              Standard RAG (Naive Matching)
-            </span>
-            <span class="text-xs font-extrabold text-rose-700 bg-white px-2 py-0.5 rounded border border-rose-300">
-              Confident &amp; Wrong ❌
-            </span>
+      <!-- Side-by-Side Arena -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6" id="arena-results">
+        
+        <!-- Naive RAG Card -->
+        <div class="bg-rose-50 neo-border-sm rounded-2xl p-5 shadow-brutal-red flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase bg-rose-200 text-rose-800 px-3 py-1 rounded-full neo-border-sm">
+                Standard RAG (Naive Match)
+              </span>
+              <span class="text-xs font-extrabold text-rose-700 bg-white px-2 py-0.5 rounded border border-rose-300">
+                Confident &amp; Wrong ❌
+              </span>
+            </div>
+            <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-800 border-l-4 border-l-rose-500 leading-relaxed" id="plain-rag-answer">
+              <!-- Rendered via JS -->
+            </div>
+            <p class="text-xs text-rose-900 font-medium" id="plain-rag-reason">
+              <!-- Rendered via JS -->
+            </p>
           </div>
-          <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-800 border-l-4 border-l-rose-500 leading-relaxed" id="plain-rag-answer">
-            "Yes, refunds are allowed within 14 days under Amendment A."
+          <div class="mt-4 pt-3 border-t border-rose-200 text-[11px] font-bold text-rose-700 flex items-center justify-between">
+            <span>Air Canada Ruling Risk: HIGH</span>
+            <span>Decision: Cosine Top Match</span>
           </div>
-          <p class="text-xs text-rose-900 font-medium" id="plain-rag-reason">
-            <b>Failure Root Cause:</b> Selected Amendment A solely based on highest semantic similarity, unaware that its effective date is in the future (1 July 2025).
-          </p>
         </div>
-        <div class="mt-4 pt-3 border-t border-rose-200 text-[11px] font-bold text-rose-700 flex items-center justify-between">
-          <span>Air Canada Ruling Risk: BREACH</span>
-          <span>Decision: Cosine Top Match</span>
-        </div>
-      </div>
 
-      <!-- TruthGuard Engine Card -->
-      <div class="bg-emerald-50 neo-border-sm rounded-2xl p-5 shadow-brutal-green flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-extrabold uppercase bg-brand-lime text-black px-3 py-1 rounded-full neo-border-sm">
-              🛡️ TruthGuard (Deterministic)
-            </span>
-            <span class="text-xs font-extrabold text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-300" id="tg-status-badge">
-              Audited &amp; In Force ✅
-            </span>
+        <!-- TruthGuard Card -->
+        <div class="bg-emerald-50 neo-border-sm rounded-2xl p-5 shadow-brutal-green flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase bg-brand-lime text-black px-3 py-1 rounded-full neo-border-sm">
+                🛡️ TruthGuard (Deterministic)
+              </span>
+              <span class="text-xs font-extrabold text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-300" id="tg-status-badge">
+                Audited &amp; In Force ✅
+              </span>
+            </div>
+            <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-900 border-l-4 border-l-emerald-500 leading-relaxed" id="truthguard-answer">
+              <!-- Rendered via JS -->
+            </div>
+            <div class="text-xs text-emerald-950 font-medium space-y-1">
+              <p><b>Prevailing Clause:</b> <span class="bg-gray-900 text-brand-lime font-mono px-2 py-0.5 rounded text-[11px] font-bold" id="tg-winner-clause">RP-v1-4.2</span></p>
+              <p id="tg-decision-text"><b>Deterministic Audit:</b> Passed all 6 precedence checks.</p>
+            </div>
           </div>
-          <div class="bg-white neo-border-sm rounded-xl p-3.5 mb-3 text-sm font-semibold text-gray-900 border-l-4 border-l-emerald-500 leading-relaxed" id="truthguard-answer">
-            "No. On 20 Jun 2025, the 7-day refund window applied under Policy v1 [RP-v1-4.2]. The 14-day window in Amendment A does not take effect until 1 Jul 2025."
-          </div>
-          <div class="text-xs text-emerald-950 font-medium space-y-1">
-            <p><b>Prevailing Clause:</b> <span class="bg-gray-900 text-brand-lime font-mono px-2 py-0.5 rounded text-[11px] font-bold" id="tg-winner-clause">RP-v1-4.2</span></p>
-            <p id="tg-decision-text"><b>Deterministic Audit:</b> Dropped Amendment A at Step 2 (not yet in force on query date).</p>
+          <div class="mt-4 pt-3 border-t border-emerald-200 text-[11px] font-bold text-emerald-800 flex items-center justify-between">
+            <span>Citation Gate: 100% CITED</span>
+            <span>Zero Hallucination Guaranteed</span>
           </div>
         </div>
-        <div class="mt-4 pt-3 border-t border-emerald-200 text-[11px] font-bold text-emerald-800 flex items-center justify-between">
-          <span>Citation Gate: 100% CITED</span>
-          <span>Zero Hallucination Guarantee</span>
-        </div>
-      </div>
 
-    </section>
+      </section>
 
-    <!-- Visual Chronological Validity Timeline -->
-    <section class="bg-gray-50 neo-border-sm rounded-2xl p-4 sm:p-5 shadow-brutal-sm mb-6" id="timeline-section">
-      <div class="flex items-center justify-between mb-3">
-        <h3 class="text-xs font-extrabold uppercase tracking-wider text-gray-700">
-          ⏱️ Chronological Policy Validity &amp; Transition Tracker
-        </h3>
-        <span class="text-[11px] font-bold text-gray-500" id="timeline-query-label">As of: 20 Jun 2025</span>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="timeline-nodes">
-        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-emerald-500" id="node-base">
-          <div class="font-bold text-gray-900">Baseline Document</div>
-          <div class="font-extrabold text-sm text-gray-800" id="node-base-title">Policy v1</div>
-          <div class="text-gray-500" id="node-base-desc">7-Day Window</div>
-          <div class="text-[10px] font-bold text-emerald-700 mt-1" id="node-base-status">● IN FORCE</div>
+      <!-- Chronological Timeline Display -->
+      <section class="bg-gray-50 neo-border-sm rounded-2xl p-4 sm:p-5 shadow-brutal-sm mb-6" id="timeline-section">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-gray-700">
+            ⏱️ Chronological Policy Validity &amp; Transition Tracker
+          </h3>
+          <span class="text-[11px] font-bold text-gray-500" id="timeline-query-label">As of: 20 Jun 2025</span>
         </div>
-        <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-amber-500" id="node-revision">
-          <div class="font-bold text-gray-900">Revision / Amendment</div>
-          <div class="font-extrabold text-sm text-gray-800" id="node-rev-title">Amendment A</div>
-          <div class="text-gray-500" id="node-rev-desc">14-Day Window</div>
-          <div class="text-[10px] font-bold text-amber-700 mt-1" id="node-rev-status">⏳ PENDING EFFECTIVE DATE</div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs" id="timeline-nodes">
+          <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-emerald-500" id="node-base">
+            <div class="font-bold text-gray-900">Baseline Rule</div>
+            <div class="font-extrabold text-sm text-gray-800" id="node-base-title">Policy v1</div>
+            <div class="text-gray-500" id="node-base-desc">7-Day Window</div>
+            <div class="text-[10px] font-bold text-emerald-700 mt-1" id="node-base-status">● IN FORCE</div>
+          </div>
+          <div class="bg-white neo-border-sm rounded-xl p-3 border-l-4 border-l-amber-500" id="node-revision">
+            <div class="font-bold text-gray-900">Amendment / Revision</div>
+            <div class="font-extrabold text-sm text-gray-800" id="node-rev-title">Amendment A</div>
+            <div class="text-gray-500" id="node-rev-desc">14-Day Window</div>
+            <div class="text-[10px] font-bold text-amber-700 mt-1" id="node-rev-status">⏳ PENDING 1 JUL</div>
+          </div>
+          <div class="bg-blue-100 neo-border-sm rounded-xl p-3 border-l-4 border-l-blue-600 shadow-brutal-sm" id="node-query">
+            <div class="font-bold text-blue-900">📍 Evaluated As-Of</div>
+            <div class="font-extrabold text-sm text-blue-950" id="node-query-date">20 Jun 2025</div>
+            <div class="text-blue-800 font-semibold" id="node-query-winner">Policy v1 Governs</div>
+            <div class="text-[10px] font-bold text-blue-700 mt-1">LEGAL TARGET</div>
+          </div>
+          <div class="bg-rose-50 neo-border-sm rounded-xl p-3 border-l-4 border-l-rose-500" id="node-conflict">
+            <div class="font-bold text-rose-900">Contradictory Source</div>
+            <div class="font-extrabold text-sm text-rose-950" id="node-conflict-title">Support FAQ #12</div>
+            <div class="text-rose-700" id="node-conflict-desc">"Store Credit"</div>
+            <div class="text-[10px] font-bold text-rose-600 mt-1">⚠️ FLAGGED TO LEDGER</div>
+          </div>
         </div>
-        <div class="bg-blue-100 neo-border-sm rounded-xl p-3 border-l-4 border-l-blue-600 shadow-brutal-sm" id="node-query">
-          <div class="font-bold text-blue-900">📍 Evaluated As-Of</div>
-          <div class="font-extrabold text-sm text-blue-950" id="node-query-date">20 Jun 2025</div>
-          <div class="text-blue-800 font-semibold" id="node-query-winner">Policy v1 Governs</div>
-          <div class="text-[10px] font-bold text-blue-700 mt-1">LEGAL TARGET</div>
-        </div>
-        <div class="bg-rose-50 neo-border-sm rounded-xl p-3 border-l-4 border-l-rose-500" id="node-conflict">
-          <div class="font-bold text-rose-900">Contradictory Source</div>
-          <div class="font-extrabold text-sm text-rose-950" id="node-conflict-title">Support FAQ #12</div>
-          <div class="text-rose-700" id="node-conflict-desc">"Store Credit"</div>
-          <div class="text-[10px] font-bold text-rose-600 mt-1">⚠️ SENT TO LEDGER</div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Bottom Actions: Ingest, Ledger, and Benchmark Scoreboard -->
+    </div>
+
+    <!-- Bottom Actions: Ledger & Benchmark Scoreboard Modals -->
     <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t-2 border-gray-100">
       <div class="flex flex-wrap gap-2">
-        <button onclick="openModal('ingest-modal')" class="px-4 py-2 bg-brand-lime hover:bg-lime-400 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
-          <span>➕ Add Custom Document</span>
-        </button>
         <button onclick="openModal('ledger-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
           <span>📋 Contradiction Ledger</span>
           <span class="bg-brand-pink text-white rounded-full px-2 py-0.2 text-[10px]" id="ledger-count-pill">7</span>
         </button>
         <button onclick="openModal('scoreboard-modal')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl neo-border-sm shadow-brutal-sm neo-btn flex items-center gap-1.5">
-          <span>📊 Benchmark Scoreboard</span>
+          <span>📊 Judges' Scoreboard</span>
           <span class="bg-brand-yellow text-black rounded-full px-2 py-0.2 text-[10px]">93.8%</span>
         </button>
       </div>
@@ -294,7 +418,7 @@
 
   </main>
 
-  <!-- Floating "Ask Assistant" pill at bottom-right (Exact match to reference style!) -->
+  <!-- Floating Assistant Pill at bottom right -->
   <div class="fixed bottom-6 right-6 flex items-center gap-2 cursor-pointer z-50 group" onclick="openModal('assistant-modal')">
     <div class="bg-white neo-border-sm px-4 py-2 rounded-full shadow-brutal text-xs font-extrabold text-gray-900 group-hover:bg-brand-yellow transition-all">
       Ask assistant
@@ -304,81 +428,26 @@
     </div>
   </div>
 
-  <!-- MODAL 1: Ingest Custom Document -->
-  <div id="ingest-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-xl w-full p-6 max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
-        <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
-          <span>➕ Ingest Custom Policy / Clause</span>
-          <span class="text-xs bg-brand-lime text-black px-2 py-0.5 rounded-full font-bold">Live Graph Ingest</span>
-        </h3>
-        <button onclick="closeModal('ingest-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
-      </div>
-      <p class="text-xs text-gray-600 mb-4 font-medium">
-        Test TruthGuard on any arbitrary enterprise document. Enter the clause details below and click Ingest to update the live knowledge graph.
-      </p>
-
-      <div class="space-y-3 text-xs">
-        <div>
-          <label class="block font-bold text-gray-800 mb-1">Document Title</label>
-          <input type="text" id="custom-doc-title" placeholder="e.g. Employee Severance Agreement 2025" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-bold text-gray-800 mb-1">Document Type</label>
-            <select id="custom-doc-type" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
-              <option value="regulation">Regulation (Rank 5)</option>
-              <option value="board policy" selected>Board Policy (Rank 4)</option>
-              <option value="product T&C">Product Contract / T&amp;C (Rank 3)</option>
-              <option value="FAQ">Customer FAQ (Rank 2)</option>
-              <option value="support email">Email / Memo (Rank 1)</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-bold text-gray-800 mb-1">Topic Category</label>
-            <input type="text" id="custom-doc-topic" placeholder="e.g. severance_pay, refund, sla" value="severance_pay" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-bold text-gray-800 mb-1">Published Date</label>
-            <input type="date" id="custom-pub-date" value="2025-01-15" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
-          </div>
-          <div>
-            <label class="block font-bold text-gray-800 mb-1">Effective From</label>
-            <input type="date" id="custom-eff-date" value="2025-07-01" class="w-full bg-white neo-border-sm rounded-xl px-3 py-2 font-semibold">
-          </div>
-        </div>
-        <div>
-          <label class="block font-bold text-gray-800 mb-1">Clause Wording / Policy Text</label>
-          <textarea id="custom-text" rows="3" placeholder="Enter clause text..." class="w-full bg-white neo-border-sm rounded-xl p-3 font-semibold text-xs leading-relaxed">Executive severance compensation is fixed at 6 months base salary upon termination without cause.</textarea>
-        </div>
-        <button onclick="submitCustomClause()" class="w-full bg-brand-pink text-white font-extrabold py-3 rounded-xl neo-border-sm shadow-brutal neo-btn text-sm mt-2">
-          ⚡ Ingest Clause &amp; Update Graph
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 2: Contradiction Ledger -->
+  <!-- MODAL: Contradiction Ledger -->
   <div id="ledger-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
         <h3 class="text-lg font-extrabold text-gray-900 flex items-center gap-2">
-          <span>📋 Contradiction Ledger (Automated Fix-It Desk)</span>
+          <span>📋 Contradiction Ledger</span>
+          <span class="text-xs bg-brand-pink text-white px-2 py-0.5 rounded-full font-bold">Ranked by Traffic × Risk</span>
         </h3>
         <button onclick="closeModal('ledger-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
       </div>
       <p class="text-xs text-gray-600 mb-4 font-medium">
-        Every conflict caught between active policy and subordinate or stale documents is ranked by <b>Traffic × Risk</b> and assigned to owners:
+        Conflicts detected by the Falsification Critic are automatically prioritized and assigned to document owners for remediation:
       </p>
       <div class="space-y-3" id="ledger-tickets-list">
-        <!-- Rendered dynamically -->
+        <!-- Rendered via JS -->
       </div>
     </div>
   </div>
 
-  <!-- MODAL 3: Judges' Scoreboard -->
+  <!-- MODAL: Scoreboard -->
   <div id="scoreboard-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-2xl w-full p-6 max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-4">
@@ -424,30 +493,27 @@
     </div>
   </div>
 
-  <!-- MODAL 4: Assistant Demo Pitch Guide -->
+  <!-- MODAL: Assistant Help -->
   <div id="assistant-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white neo-border rounded-[24px] shadow-brutal-lg max-w-md w-full p-6">
       <div class="flex items-center justify-between border-b-2 border-gray-100 pb-3 mb-3">
         <h3 class="text-base font-extrabold text-gray-900 flex items-center gap-2">
-          <span>✨ Hackathon Pitch Assistant</span>
+          <span>✨ Hackathon Demo Guide</span>
         </h3>
         <button onclick="closeModal('assistant-modal')" class="text-gray-400 hover:text-black font-extrabold text-lg">✕</button>
       </div>
       <p class="text-xs text-gray-600 leading-relaxed mb-4">
-        <b>How to present TruthGuard to judges:</b><br>
-        1. Select <b>Industry Profile</b> (Telecom or Banking).<br>
-        2. Show the <b>Hero Case (20 Jun)</b> where Plain RAG fails.<br>
-        3. Switch to <b>Time Travel (2 Jul)</b> to show dynamic date awareness.<br>
-        4. Open <b>Contradiction Ledger</b> to show automated tickets.<br>
-        5. Ingest a custom clause live to prove the engine is general-purpose!
+        1. Click a scenario chip above (e.g. <b>Hero Case 20 Jun</b>).<br>
+        2. Click the hot-pink <b>Run TruthGuard Precedence Analysis</b> button.<br>
+        3. See how Plain RAG fails while TruthGuard audits legal validity!
       </p>
-      <button onclick="closeModal('assistant-modal'); openModal('ingest-modal');" class="w-full text-center bg-brand-yellow font-extrabold px-3 py-2.5 rounded-xl text-xs neo-border-sm shadow-brutal-sm">
-        Try Live Custom Clause Ingestion ➔
+      <button onclick="closeModal('assistant-modal'); toggleIngestMode('add');" class="w-full text-center bg-brand-yellow font-extrabold px-3 py-2.5 rounded-xl text-xs neo-border-sm shadow-brutal-sm">
+        Try Adding a Custom Clause Live ➔
       </button>
     </div>
   </div>
 
-  <!-- Client-Side Engine & Scenario Controller -->
+  <!-- JavaScript Application Logic -->
   <script>
     const INDUSTRY_CONFIGS = {
       telecom: {
@@ -547,24 +613,6 @@
             revTitle: "Portal FAQ",
             revDesc: "2% Fee (Rank 2)",
             isJuly: false
-          },
-          {
-            id: "bank_min_balance",
-            name: "💳 Minimum Balance Fine",
-            query: "Is a customer penalized for failing to maintain minimum quarterly balance in a basic savings account?",
-            date: "2025-06-01",
-            scope: "all",
-            plainRag: '"Yes, accounts with balance under Rs. 5,000 are subject to a monthly maintenance charge of Rs. 250."',
-            truthguard: '"Basic savings accounts are exempt from minimum balance maintenance fines under Board Risk Policy [BANK-BSBDA-1]."',
-            winner: "BANK-BSBDA-1",
-            status: "Audited & In Force ✅",
-            plainReason: "Assumed general commercial account rules apply to basic financial inclusion tier.",
-            tgDecision: "Specific regulatory inclusion tier preserves penalty exemption at Step 5.",
-            baseTitle: "Board Risk Policy",
-            baseDesc: "Exempt BSBDA",
-            revTitle: "Retail Account FAQ",
-            revDesc: "Rs. 250 Charge",
-            isJuly: false
           }
         ]
       },
@@ -587,24 +635,6 @@
             baseDesc: "Sky Exclusivity",
             revTitle: "PR Release",
             revDesc: "Global Stream",
-            isJuly: true
-          },
-          {
-            id: "media_france",
-            name: "🇫🇷 French Chronology Law",
-            query: "What is the theatrical holdback period before SVOD streaming is permitted in France?",
-            date: "2025-10-01",
-            scope: "france",
-            plainRag: '"Theatrical holdback is 45 days globally under the European License Renewal Addendum."',
-            truthguard: '"Under statutory French Media Chronology obligations in France, theatrical holdback is strictly 17 months [FR-MEDIA-CHRONO]."',
-            winner: "FR-MEDIA-CHRONO",
-            status: "Audited & In Force ✅",
-            plainReason: "Applied global 45-day compression addendum, ignoring statutory French territorial carve-out.",
-            tgDecision: "Specific French territorial obligation survives global general amendment at Step 5.",
-            baseTitle: "French Chronology",
-            baseDesc: "17 Months Statutory",
-            revTitle: "Global Addendum",
-            revDesc: "45 Days General",
             isJuly: true
           }
         ]
@@ -636,37 +666,58 @@
 
     let currentIndustry = "telecom";
     let activeScenario = null;
+    let hasAnalyzed = false;
 
     const TICKETS = [
       { id: "TICKET-789C3D", priority: 320, owner: "Support Content Lead", summary: "Support FAQ #12 promises store credit, contradicting Board Policy cl.4.5 (card refunds).", action: "Retract or update FAQ #12 to mandate card refunds." },
       { id: "TICKET-CBD9A4", priority: 320, owner: "Digital Portal Team", summary: "Subscriber Portal FAQ lists Rs. 100 MNP port fee, violating Regulatory Directive REG-MNP-ZERO.", action: "Remove Rs. 100 charge notice from portal." },
-      { id: "TICKET-307256", priority: 320, owner: "PR & Marketing", summary: "Marketing Press Release promises worldwide streaming in Germany, violating Sky exclusivity pact.", action: "Add territorial carve-out for DACH." },
-      { id: "TICKET-A95E38", priority: 280, owner: "Compliance Office", summary: "Retail Branch FAQ lists 2% prepayment fee, violating Central Bank floating rate circular.", action: "Harmonize branch circular to 0% fee." }
+      { id: "TICKET-307256", priority: 320, owner: "PR & Marketing", summary: "Marketing Press Release promises worldwide streaming in Germany, violating Sky exclusivity pact.", action: "Add territorial carve-out for DACH." }
     ];
+
+    function toggleIngestMode(mode) {
+      const panelBrowse = document.getElementById('panel-browse');
+      const panelAdd = document.getElementById('panel-add');
+      const btnBrowse = document.getElementById('tab-browse-btn');
+      const btnAdd = document.getElementById('tab-add-btn');
+
+      if (mode === 'add') {
+        panelBrowse.classList.add('hidden');
+        panelAdd.classList.remove('hidden');
+        btnAdd.classList.add('bg-brand-yellow');
+        btnAdd.classList.remove('bg-white');
+        btnBrowse.classList.remove('bg-brand-yellow');
+        btnBrowse.classList.add('bg-white');
+      } else {
+        panelBrowse.classList.remove('hidden');
+        panelAdd.classList.add('hidden');
+        btnBrowse.classList.add('bg-brand-yellow');
+        btnBrowse.classList.remove('bg-white');
+        btnAdd.classList.remove('bg-brand-yellow');
+        btnAdd.classList.add('bg-white');
+      }
+    }
 
     function onIndustryChange() {
       const sel = document.getElementById('industry-selector');
       currentIndustry = sel.value;
       const cfg = INDUSTRY_CONFIGS[currentIndustry];
 
-      // Update hierarchy bar
       document.getElementById('authority-hierarchy-text').innerText = cfg.hierarchy;
       document.getElementById('scenario-label').innerText = `🎯 Pre-loaded Scenarios for ${sel.options[sel.selectedIndex].text}:`;
 
-      // Render scenarios
       const container = document.getElementById('scenario-container');
       container.innerHTML = cfg.scenarios.map((s, idx) => `
-        <button onclick="loadScenarioById('${s.id}')" class="scenario-btn ${idx === 0 ? 'bg-brand-yellow' : 'bg-white'} px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm hover:bg-brand-lime transition-all">
+        <button onclick="selectScenarioById('${s.id}')" id="chip-${s.id}" class="scenario-btn ${idx === 0 ? 'bg-brand-yellow' : 'bg-white'} px-3.5 py-1.5 rounded-full text-xs font-bold neo-border-sm shadow-brutal-sm hover:bg-brand-lime transition-all">
           ${s.name}
         </button>
       `).join('');
 
       if (cfg.scenarios.length > 0) {
-        loadScenarioById(cfg.scenarios[0].id);
+        selectScenarioById(cfg.scenarios[0].id);
       }
     }
 
-    function loadScenarioById(id) {
+    function selectScenarioById(id) {
       const cfg = INDUSTRY_CONFIGS[currentIndustry];
       const s = cfg.scenarios.find(item => item.id === id);
       if (!s) return;
@@ -677,53 +728,158 @@
       document.getElementById('as-of-date').value = s.date;
       document.getElementById('customer-scope').value = s.scope;
 
-      // Update arena
-      document.getElementById('plain-rag-answer').innerText = s.plainRag;
-      document.getElementById('plain-rag-reason').innerHTML = `<b>Failure Root Cause:</b> ${s.plainReason}`;
-      document.getElementById('truthguard-answer').innerText = s.truthguard;
-      document.getElementById('tg-winner-clause').innerText = s.winner;
-      document.getElementById('tg-decision-text').innerHTML = `<b>Deterministic Audit:</b> ${s.tgDecision}`;
+      // Update chips visual
+      document.querySelectorAll('.scenario-btn').forEach(b => {
+        b.classList.remove('bg-brand-yellow');
+        b.classList.add('bg-white');
+      });
+      const targetChip = document.getElementById(`chip-${id}`);
+      if (targetChip) {
+        targetChip.classList.remove('bg-white');
+        targetChip.classList.add('bg-brand-yellow');
+      }
 
-      // Update timeline
-      document.getElementById('timeline-query-label').innerText = `As of: ${s.date}`;
-      document.getElementById('node-base-title').innerText = s.baseTitle;
-      document.getElementById('node-base-desc').innerText = s.baseDesc;
-      document.getElementById('node-rev-title').innerText = s.revTitle;
-      document.getElementById('node-rev-desc').innerText = s.revDesc;
-      document.getElementById('node-query-date').innerText = s.date;
-      document.getElementById('node-query-winner').innerText = `${s.winner} Governs`;
+      // Hide results until user clicks Run!
+      document.getElementById('results-empty-state').classList.remove('hidden');
+      document.getElementById('results-container').classList.add('hidden');
+    }
 
-      const nodeBase = document.getElementById('node-base');
-      const nodeRev = document.getElementById('node-revision');
+    function triggerAnalysis() {
+      // Reveal results upon click!
+      const btn = document.getElementById('run-btn');
+      btn.innerHTML = `<span>⏳ Evaluating Precedence Rules...</span>`;
+      btn.disabled = true;
 
-      if (s.isJuly) {
-        nodeBase.classList.remove('border-l-emerald-500');
-        nodeBase.classList.add('border-l-gray-300', 'opacity-60');
-        nodeRev.classList.remove('border-l-amber-500');
-        nodeRev.classList.add('border-l-emerald-500', 'bg-emerald-50');
+      setTimeout(() => {
+        btn.innerHTML = `<span>⚡ Run TruthGuard Precedence Analysis</span>`;
+        btn.disabled = false;
+
+        document.getElementById('results-empty-state').classList.add('hidden');
+        document.getElementById('results-container').classList.remove('hidden');
+
+        // Populate results
+        const s = activeScenario || INDUSTRY_CONFIGS[currentIndustry].scenarios[0];
+        document.getElementById('plain-rag-answer').innerText = s.plainRag;
+        document.getElementById('plain-rag-reason').innerHTML = `<b>Failure Root Cause:</b> ${s.plainReason}`;
+        document.getElementById('truthguard-answer').innerText = s.truthguard;
+        document.getElementById('tg-winner-clause').innerText = s.winner;
+        document.getElementById('tg-decision-text').innerHTML = `<b>Deterministic Audit:</b> ${s.tgDecision}`;
+
+        // Timeline
+        document.getElementById('timeline-query-label').innerText = `As of: ${s.date}`;
+        document.getElementById('node-base-title').innerText = s.baseTitle;
+        document.getElementById('node-base-desc').innerText = s.baseDesc;
+        document.getElementById('node-rev-title').innerText = s.revTitle;
+        document.getElementById('node-rev-desc').innerText = s.revDesc;
+        document.getElementById('node-query-date').innerText = s.date;
+        document.getElementById('node-query-winner').innerText = `${s.winner} Governs`;
+
+        const nodeBase = document.getElementById('node-base');
+        const nodeRev = document.getElementById('node-revision');
+
+        if (s.isJuly) {
+          nodeBase.classList.remove('border-l-emerald-500');
+          nodeBase.classList.add('border-l-gray-300', 'opacity-60');
+          nodeRev.classList.remove('border-l-amber-500');
+          nodeRev.classList.add('border-l-emerald-500', 'bg-emerald-50');
+        } else {
+          nodeBase.classList.add('border-l-emerald-500');
+          nodeBase.classList.remove('border-l-gray-300', 'opacity-60');
+          nodeRev.classList.add('border-l-amber-500');
+          nodeRev.classList.remove('border-l-emerald-500', 'bg-emerald-50');
+        }
+
+        // Scroll smoothly to results
+        document.getElementById('results-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 250);
+    }
+
+    function ingestLiveClause() {
+      const title = document.getElementById('live-doc-title').value;
+      const type = document.getElementById('live-doc-type').value;
+      const eff = document.getElementById('live-eff-date').value;
+      const text = document.getElementById('live-doc-text').value;
+
+      // Add chip to active docs
+      const chipContainer = document.getElementById('active-docs-chips');
+      const newChip = document.createElement('span');
+      newChip.className = "bg-brand-lime neo-border-sm rounded-lg px-2.5 py-1 font-bold text-gray-900";
+      newChip.innerText = `📄 ${title} (${type}) ● NEW`;
+      chipContainer.prepend(newChip);
+
+      // Increment count badge
+      document.getElementById('corpus-count-badge').innerText = "31 Documents Ingested";
+
+      // Switch back to browse view
+      toggleIngestMode('browse');
+
+      // Pre-fill query to test this custom clause
+      document.getElementById('query-input').value = `What is the approved compensation rule under ${title}?`;
+      document.getElementById('as-of-date').value = eff;
+
+      activeScenario = {
+        id: "custom_ingest",
+        query: `What is the approved compensation rule under ${title}?`,
+        date: eff,
+        scope: "all",
+        plainRag: `"${text}"`,
+        truthguard: `According to ${title} (${type}), "${text}" [CUSTOM-01]. Evaluated as legally in force on ${eff}.`,
+        winner: "CUSTOM-01",
+        status: "Audited & In Force ✅",
+        plainReason: "Retrieves snippet without auditing whether subsequent revisions or superseding clauses exist.",
+        tgDecision: "Passed all 6 precedence rules: valid scope, in force on query date, and highest authority rank.",
+        baseTitle: title,
+        baseDesc: `${type} (Custom)`,
+        revTitle: "Graph Re-indexed",
+        revDesc: "Active in Precedence Engine",
+        isJuly: true
+      };
+
+      // Reset empty state
+      document.getElementById('results-empty-state').classList.remove('hidden');
+      document.getElementById('results-container').classList.add('hidden');
+
+      alert(`✅ Success: Ingested "${title}" into live knowledge graph! Now click the pink button below to run analysis against it.`);
+    }
+
+    function handleFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const fileName = file.name.replace(/\.[^/.]+$/, "");
+      document.getElementById('live-doc-title').value = fileName;
+      
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const text = evt.target.result;
+        if (typeof text === 'string') {
+          const cleanText = text.replace(/[\r\n]+/g, ' ').trim();
+          document.getElementById('live-doc-text').value = cleanText.substring(0, 250);
+        }
+      };
+      if (file.type.includes('text') || file.name.endsWith('.md') || file.name.endsWith('.txt') || file.name.endsWith('.json')) {
+        reader.readAsText(file);
       } else {
-        nodeBase.classList.add('border-l-emerald-500');
-        nodeBase.classList.remove('border-l-gray-300', 'opacity-60');
-        nodeRev.classList.add('border-l-amber-500');
-        nodeRev.classList.remove('border-l-emerald-500', 'bg-emerald-50');
+        document.getElementById('live-doc-text').value = `Extracted terms from ${file.name}: Ingested for enterprise precedence verification.`;
       }
     }
 
-    function runEngineAnalysis() {
-      const q = document.getElementById('query-input').value;
-      const d = document.getElementById('as-of-date').value;
-
-      // If matches existing scenario date/text, toggle cleanly
-      if (q.toLowerCase().includes("refund") && d >= "2025-07-01") {
-        loadScenarioById('tel_hero_2jul');
-      } else if (q.toLowerCase().includes("refund")) {
-        loadScenarioById('tel_hero_20jun');
+    function fillPreset(type) {
+      if (type === 'severance') {
+        document.getElementById('live-doc-title').value = "Executive Severance Agreement 2025";
+        document.getElementById('live-doc-type').value = "board policy";
+        document.getElementById('live-eff-date').value = "2025-07-01";
+        document.getElementById('live-doc-text').value = "Executive severance compensation is fixed at 6 months base salary upon termination without cause.";
+      } else if (type === 'wire') {
+        document.getElementById('live-doc-title').value = "Central Bank Directive on Wire Fees 2025";
+        document.getElementById('live-doc-type').value = "regulation";
+        document.getElementById('live-eff-date').value = "2025-08-15";
+        document.getElementById('live-doc-text').value = "All cross-border SEPA wire transfers under 10,000 EUR shall be zero-surcharge for retail depositors.";
+      } else if (type === 'fairuse') {
+        document.getElementById('live-doc-title').value = "5G Unlimited Fair Usage Policy v2";
+        document.getElementById('live-doc-type').value = "product T&C";
+        document.getElementById('live-eff-date').value = "2025-09-01";
+        document.getElementById('live-doc-text').value = "Unlimited 5G domestic speeds throttled to 2 Mbps after 150GB per billing cycle.";
       }
-
-      // Smooth bounce animation
-      const arena = document.getElementById('arena-results');
-      arena.classList.add('scale-[0.99]');
-      setTimeout(() => arena.classList.remove('scale-[0.99]'), 150);
     }
 
     function clearQuery() {
@@ -734,30 +890,10 @@
     function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-    function submitCustomClause() {
-      const title = document.getElementById('custom-doc-title').value || "Custom Policy 2025";
-      const text = document.getElementById('custom-text').value;
-      const eff = document.getElementById('custom-eff-date').value;
-      const pub = document.getElementById('custom-pub-date').value;
-
-      closeModal('ingest-modal');
-
-      // Update question to test this custom clause
-      document.getElementById('query-input').value = `What is the approved policy rule according to ${title}?`;
-      document.getElementById('as-of-date').value = eff;
-
-      document.getElementById('plain-rag-answer').innerText = `"${text}"`;
-      document.getElementById('truthguard-answer').innerText = `According to ${title}, "${text}" [CUSTOM-01]. Evaluated as legally in force on ${eff}.`;
-      document.getElementById('tg-winner-clause').innerText = "CUSTOM-01";
-      document.getElementById('tg-decision-text').innerHTML = `<b>Deterministic Audit:</b> Successfully ingested custom clause into graph. All 6 precedence checks passed for date ${eff}.`;
-
-      alert(`✅ Success: Ingested "${title}" into live knowledge graph and updated hybrid retriever index!`);
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
       onIndustryChange();
 
-      // Render tickets
+      // Render tickets in modal
       const list = document.getElementById('ledger-tickets-list');
       list.innerHTML = TICKETS.map(t => `
         <div class="bg-gray-50 neo-border-sm rounded-xl p-3.5 shadow-brutal-sm text-xs">

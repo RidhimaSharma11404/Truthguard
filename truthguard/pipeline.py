@@ -66,6 +66,36 @@ class TruthGuardPipeline:
         self.baseline_b = BaselineNewestDocRAG(self.retriever)
         self._populate_corpus_contradiction_ledger()
 
+    def add_custom_clause(self, clause: Clause):
+        """Dynamically ingests a custom clause, rebuilds graph edges, and checks for contradictions."""
+        self.all_clauses.append(clause)
+        self.graph.add_clause(clause)
+        self.graph.rebuild_edges()
+        self.retriever.index(self.all_clauses)
+        self.critic = FalsificationCritic(self.all_clauses, self.graph)
+        self.baseline_a = BaselinePlainRAG(self.retriever)
+        self.baseline_b = BaselineNewestDocRAG(self.retriever)
+        self._populate_corpus_contradiction_ledger()
+
+    def set_industry_authority(self, industry: str):
+        """Updates the authority table dynamically for the selected industry."""
+        tables = {
+            "telecom": {
+                "regulation": 5, "board policy": 4, "product T&C": 3, "FAQ": 2, "support email": 1
+            },
+            "banking": {
+                "central bank circular": 5, "board risk policy": 4, "credit agreement": 3, "customer portal FAQ": 2, "relationship manager email": 1
+            },
+            "media_rights": {
+                "statutory law": 5, "master licensing agreement": 4, "distribution deal memo": 3, "press release / FAQ": 2, "sales rep email": 1
+            },
+            "corporate_hr": {
+                "statutory labor law": 5, "board company policy": 4, "employment contract": 3, "internal wiki / FAQ": 2, "manager slack / email": 1
+            }
+        }
+        if industry in tables:
+            self.precedence_engine.authority_table = tables[industry]
+
     def _populate_corpus_contradiction_ledger(self):
         """
         Scans the corpus for contradictions and populates the contradiction ledger.
