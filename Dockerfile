@@ -4,7 +4,8 @@ FROM python:3.12-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app
+    PYTHONPATH=/app \
+    PORT=8000
 
 WORKDIR /app
 
@@ -20,11 +21,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . .
 
-# Expose standard Streamlit port
-EXPOSE 8501
+# Expose standard application port
+EXPOSE 8000
 
 # Healthcheck
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+HEALTHCHECK CMD curl --fail http://localhost:8000/health || exit 1
 
-# Launch Streamlit app
-CMD ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Launch production server
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]

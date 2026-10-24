@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: truthguard-demo
+    name: truthguard
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run ui/app.py --server.port=$PORT --server.address=0.0.0.0
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12.10
-      - key: PYTHONPATH
-        value: .
+        value: 3.12.0
