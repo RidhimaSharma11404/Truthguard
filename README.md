@@ -1,7 +1,7 @@
 # 🛡️ TruthGuard: Teaching AI to Pick the Right Document, Not Just the Newest
 **Jatayu Season 6 · Use Case 2 · Proof of Concept (PoC)**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-trycloudflare.com-success?style=for-the-badge&logo=cloudflare&color=F38020)](https://strip-departments-does-ottawa.trycloudflare.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-trycloudflare.com-success?style=for-the-badge&logo=cloudflare&color=F38020)](https://society-ingredients-alternatives-midnight.trycloudflare.com)
 [![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46E3B7?style=for-the-badge&logo=render)](https://render.com/deploy?repo=https://github.com/RidhimaSharma11404/Truthguard)
 [![Open in Streamlit](https://img.shields.io/badge/Streamlit%20Cloud-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/deploy?repository=RidhimaSharma11404/Truthguard&branch=main&mainModule=ui/app.py)
 [![Tests Passing](https://img.shields.io/badge/Tests-11%2F11%20Passed-brightgreen?style=for-the-badge)]()
@@ -16,7 +16,7 @@
 
 | Deployment Channel | Status | URL |
 | :--- | :---: | :--- |
-| **Primary Live Demo (Cloudflare Edge)** | 🟢 **ONLINE** | **[https://strip-departments-does-ottawa.trycloudflare.com](https://strip-departments-does-ottawa.trycloudflare.com)** *(Instant access, no password, SSL secured)* |
+| **Primary Live Demo (Cloudflare Edge)** | 🟢 **ONLINE** | **[https://society-ingredients-alternatives-midnight.trycloudflare.com](https://society-ingredients-alternatives-midnight.trycloudflare.com)** *(Instant access, no password, SSL secured)* |
 | **1-Click Render Deploy** | 🚀 **READY** | **[Deploy to Render (render.yaml Blueprint)](https://render.com/deploy?repo=https://github.com/RidhimaSharma11404/Truthguard)** |
 | **Streamlit Community Cloud** | 🎈 **READY** | **[Deploy on Streamlit Cloud](https://share.streamlit.io/deploy?repository=RidhimaSharma11404/Truthguard&branch=main&mainModule=ui/app.py)** |
 | **Localtunnel Backup Mirror** | 🟡 **ONLINE** | **[https://vast-files-exist.loca.lt](https://vast-files-exist.loca.lt)** *(Password: `139.167.143.182`)* |
